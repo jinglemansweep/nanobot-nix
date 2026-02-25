@@ -121,4 +121,4 @@
 
 ## Final Validation
 
-- [ ] **Run pre-commit and pytest** — Run `pre-commit run --all-files` and fix any remaining issues. Then run `pytest -v` and ensure all tests pass. This is the quality gate defined in `CLAUDE.md` — both commands must pass cleanly with zero errors and zero warnings before the work is considered complete.
+- [x] **Run pre-commit and pytest** — Run `pre-commit run --all-files` and fix any remaining issues. Then run `pytest -v` and ensure all tests pass. This is the quality gate defined in `CLAUDE.md` — both commands must pass cleanly with zero errors and zero warnings before the work is considered complete.
