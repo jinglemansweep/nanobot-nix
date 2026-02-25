@@ -24,7 +24,7 @@
 
 ### Remove Channel Management
 
-- [ ] **Remove the nix-channel RUN block** — Delete lines 56–57 of `Dockerfile` (the `RUN nix-channel --add ... && nix-channel --update` block). Flakes-based commands use `nixpkgs#<pkg>` registry references directly, so channel management is no longer needed. The DeterminateSystems installer configures the Nix registry by default.
+- [x] **Remove the nix-channel RUN block** — Delete lines 56–57 of `Dockerfile` (the `RUN nix-channel --add ... && nix-channel --update` block). Flakes-based commands use `nixpkgs#<pkg>` registry references directly, so channel management is no longer needed. The DeterminateSystems installer configures the Nix registry by default.
 
 ### Update Dockerfile Comment
 
