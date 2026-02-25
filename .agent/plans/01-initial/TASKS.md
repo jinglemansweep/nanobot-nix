@@ -46,13 +46,13 @@
 
 ## Entrypoint Script
 
-- [ ] **Create `scripts/entrypoint.sh`** — Create the file `scripts/entrypoint.sh` (executable, `#!/usr/bin/env bash`, `set -euo pipefail`) implementing the five-step startup sequence. Requires: Config Generation group and Nix Wrapper Scripts group to be complete.
-  - [ ] **Step 1: Source Nix profile** — Check if `/root/.nix-profile/etc/profile.d/nix.sh` exists. If so, source it (`. /root/.nix-profile/etc/profile.d/nix.sh`). This adds Nix-installed packages to `PATH`. Do not fail if the file is missing (first run with empty `/nix` volume).
-  - [ ] **Step 2: Nanobot onboard** — Check if the directory `~/.nanobot/workspace/` exists. If not, run `nanobot onboard` to bootstrap the workspace (creates config.json template, workspace dir, SOUL.md, TOOLS.md, AGENTS.md, etc.). This is idempotent — only runs on first boot.
-  - [ ] **Step 3: Config generation** — Run `python3 /opt/nanobot-nix/scripts/config_generate.py` to produce/overwrite `~/.nanobot/config.json` from environment variables. This runs every startup so config changes via env vars take effect immediately.
-  - [ ] **Step 4: Inject skills** — Create the target directory `~/.nanobot/workspace/skills/` if it doesn't exist. First, symlink all built-in skills: `for dir in /opt/nanobot-nix/skills/*/; do ln -sfn "$dir" ~/.nanobot/workspace/skills/$(basename "$dir"); done`. Then, overlay custom skills: `if [ -d /mnt/skills ]; then for dir in /mnt/skills/*/; do ln -sfn "$dir" ~/.nanobot/workspace/skills/$(basename "$dir"); done; fi`. Custom skills override built-in skills of the same name because symlinks are created with `-f` (force).
-  - [ ] **Step 5: Exec nanobot** — `exec nanobot "$@"` — replace the shell process with nanobot, passing through all command-line arguments (e.g. `gateway`, `agent`).
-  - [ ] **Verify** — Run `chmod +x scripts/entrypoint.sh` and confirm the script has correct syntax with `bash -n scripts/entrypoint.sh`.
+- [x] **Create `scripts/entrypoint.sh`** — Create the file `scripts/entrypoint.sh` (executable, `#!/usr/bin/env bash`, `set -euo pipefail`) implementing the five-step startup sequence. Requires: Config Generation group and Nix Wrapper Scripts group to be complete.
+  - [x] **Step 1: Source Nix profile** — Check if `/root/.nix-profile/etc/profile.d/nix.sh` exists. If so, source it (`. /root/.nix-profile/etc/profile.d/nix.sh`). This adds Nix-installed packages to `PATH`. Do not fail if the file is missing (first run with empty `/nix` volume).
+  - [x] **Step 2: Nanobot onboard** — Check if the directory `~/.nanobot/workspace/` exists. If not, run `nanobot onboard` to bootstrap the workspace (creates config.json template, workspace dir, SOUL.md, TOOLS.md, AGENTS.md, etc.). This is idempotent — only runs on first boot.
+  - [x] **Step 3: Config generation** — Run `python3 /opt/nanobot-nix/scripts/config_generate.py` to produce/overwrite `~/.nanobot/config.json` from environment variables. This runs every startup so config changes via env vars take effect immediately.
+  - [x] **Step 4: Inject skills** — Create the target directory `~/.nanobot/workspace/skills/` if it doesn't exist. First, symlink all built-in skills: `for dir in /opt/nanobot-nix/skills/*/; do ln -sfn "$dir" ~/.nanobot/workspace/skills/$(basename "$dir"); done`. Then, overlay custom skills: `if [ -d /mnt/skills ]; then for dir in /mnt/skills/*/; do ln -sfn "$dir" ~/.nanobot/workspace/skills/$(basename "$dir"); done; fi`. Custom skills override built-in skills of the same name because symlinks are created with `-f` (force).
+  - [x] **Step 5: Exec nanobot** — `exec nanobot "$@"` — replace the shell process with nanobot, passing through all command-line arguments (e.g. `gateway`, `agent`).
+  - [x] **Verify** — Run `chmod +x scripts/entrypoint.sh` and confirm the script has correct syntax with `bash -n scripts/entrypoint.sh`.
 
 ## Skills
 
