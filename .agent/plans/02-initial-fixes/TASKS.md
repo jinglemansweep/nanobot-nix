@@ -44,7 +44,7 @@
 
 ### Schema Tests
 
-- [ ] **Create `tests/test_config_schema.py`** — Create `tests/test_config_schema.py` with tests that validate the data structures in `scripts/config_schema.py`. Import via `from scripts.config_schema import ENV_MAP, DEFAULTS, ARRAY_FIELDS, ALIASES`. Include the following test functions:
+- [x] **Create `tests/test_config_schema.py`** — Create `tests/test_config_schema.py` with tests that validate the data structures in `scripts/config_schema.py`. Import via `from scripts.config_schema import ENV_MAP, DEFAULTS, ARRAY_FIELDS, ALIASES`. Include the following test functions:
   - `test_env_map_values_are_tuples` — Assert every value in `ENV_MAP` is a `tuple` and has at least one element.
   - `test_env_map_values_contain_strings` — Assert every element in each `ENV_MAP` tuple is a `str`.
   - `test_array_fields_exist_in_env_map` — Assert every key in `ARRAY_FIELDS` also exists as a key in `ENV_MAP`.
