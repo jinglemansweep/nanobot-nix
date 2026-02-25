@@ -75,7 +75,7 @@
 
 ## CI Test Workflow
 
-- [ ] **Create `.github/workflows/test.yml`** — Create `.github/workflows/test.yml` with a GitHub Actions workflow that runs on pull requests and pushes to `main`. Use the following structure:
+- [x] **Create `.github/workflows/test.yml`** — Create `.github/workflows/test.yml` with a GitHub Actions workflow that runs on pull requests and pushes to `main`. Use the following structure:
   - `name: Test`
   - `on:` trigger on `push: branches: [main]` and `pull_request:`
   - `permissions: contents: read`
