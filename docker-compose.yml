@@ -1,6 +1,14 @@
+x-common-build: &common-build
+  context: .
+  dockerfile: Dockerfile
+  args:
+    NANOBOT_REPO: https://github.com/HKUDS/nanobot.git
+    NANOBOT_REF: main
+
 services:
   gateway:
     image: ghcr.io/jinglemansweep/nanobot-nix:latest
+    build: *common-build
     command: ["gateway"]
     restart: unless-stopped
     read_only: true
@@ -22,6 +30,7 @@ services:
 
   cli:
     image: ghcr.io/jinglemansweep/nanobot-nix:latest
+    build: *common-build
     command: ["agent"]
     profiles:
       - cli

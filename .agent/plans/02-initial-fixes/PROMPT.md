@@ -1,0 +1,4 @@
+* Docker Compose file should support local building too (not just image pulling)
+* Add pytest unit tests for config python scripts. Add this to quality gate agent instructions in CLAUDE.md
+* Add shellcheck to Pre-commit to ensure Shell scripts are of high quality
+* Add a new skill "documentation" that analyses the current repo contents and ensures all documentation is accurate, up-to-date, free of hallucinations, includes any new features and any old/deprecated features removed. Documentation includes README.md, CLAUDE.md and any docstrings or large inline comments throughout the codebase. This skill should thoroughly analyse the codebase and ensure the documentation accurately reflects the current state of the project. The CLAUDE.md file should be update to invoke this skill after a large unit of work or before a large commit
