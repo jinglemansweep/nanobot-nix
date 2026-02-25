@@ -11,7 +11,7 @@
 ## Quality Gates
 
 - Before completing any unit of work, run `pre-commit run --all-files` and fix ALL errors and warnings until it passes cleanly.
-- If any test suites exist in the project, run ALL tests and resolve ALL failures before proceeding. No skipped or ignored tests.
+- Run `pytest` and resolve ALL test failures before proceeding. No skipped or ignored tests.
 
 ## Git
 
