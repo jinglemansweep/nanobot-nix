@@ -75,11 +75,11 @@
 
 ## Docker Compose
 
-- [ ] **Create `docker-compose.yml`** — Create the file `docker-compose.yml` at the repository root defining the `gateway` and `cli` services. Requires: Dockerfile group to be complete (for image reference).
-  - [ ] **Gateway service** — Service name `gateway`. Image: `ghcr.io/jinglemansweep/nanobot-nix:latest`. Command: `["gateway"]`. `restart: unless-stopped`. `read_only: true`. Ports: `["18790:18790"]`. `env_file: .env`. `tmpfs: ["/tmp"]`. Volumes: `nanobot-data:/root/.nanobot`, `nix-store:/nix`, `./skills:/mnt/skills:ro`. Add a healthcheck: `test: ["CMD", "curl", "-f", "http://localhost:18790"]`, `interval: 30s`, `timeout: 10s`, `retries: 3`, `start_period: 30s`.
-  - [ ] **CLI service** — Service name `cli`. Image: `ghcr.io/jinglemansweep/nanobot-nix:latest`. Command: `["agent"]`. `profiles: [cli]`. `stdin_open: true`. `tty: true`. `read_only: true`. `env_file: .env`. `tmpfs: ["/tmp"]`. Volumes: same as gateway (`nanobot-data:/root/.nanobot`, `nix-store:/nix`, `./skills:/mnt/skills:ro`).
-  - [ ] **Named volumes** — Declare top-level `volumes:` with `nanobot-data:` and `nix-store:` (both with default driver).
-  - [ ] **Verify** — Run `docker compose config` and confirm the file is valid YAML and parses without errors.
+- [x] **Create `docker-compose.yml`** — Create the file `docker-compose.yml` at the repository root defining the `gateway` and `cli` services. Requires: Dockerfile group to be complete (for image reference).
+  - [x] **Gateway service** — Service name `gateway`. Image: `ghcr.io/jinglemansweep/nanobot-nix:latest`. Command: `["gateway"]`. `restart: unless-stopped`. `read_only: true`. Ports: `["18790:18790"]`. `env_file: .env`. `tmpfs: ["/tmp"]`. Volumes: `nanobot-data:/root/.nanobot`, `nix-store:/nix`, `./skills:/mnt/skills:ro`. Add a healthcheck: `test: ["CMD", "curl", "-f", "http://localhost:18790"]`, `interval: 30s`, `timeout: 10s`, `retries: 3`, `start_period: 30s`.
+  - [x] **CLI service** — Service name `cli`. Image: `ghcr.io/jinglemansweep/nanobot-nix:latest`. Command: `["agent"]`. `profiles: [cli]`. `stdin_open: true`. `tty: true`. `read_only: true`. `env_file: .env`. `tmpfs: ["/tmp"]`. Volumes: same as gateway (`nanobot-data:/root/.nanobot`, `nix-store:/nix`, `./skills:/mnt/skills:ro`).
+  - [x] **Named volumes** — Declare top-level `volumes:` with `nanobot-data:` and `nix-store:` (both with default driver).
+  - [x] **Verify** — Run `docker compose config` and confirm the file is valid YAML and parses without errors.
 
 ## CI/CD
 

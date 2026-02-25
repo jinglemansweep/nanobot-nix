@@ -1,0 +1,41 @@
+services:
+  gateway:
+    image: ghcr.io/jinglemansweep/nanobot-nix:latest
+    command: ["gateway"]
+    restart: unless-stopped
+    read_only: true
+    ports:
+      - "18790:18790"
+    env_file: .env
+    tmpfs:
+      - /tmp
+    volumes:
+      - nanobot-data:/root/.nanobot
+      - nix-store:/nix
+      - ./skills:/mnt/skills:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18790"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  cli:
+    image: ghcr.io/jinglemansweep/nanobot-nix:latest
+    command: ["agent"]
+    profiles:
+      - cli
+    stdin_open: true
+    tty: true
+    read_only: true
+    env_file: .env
+    tmpfs:
+      - /tmp
+    volumes:
+      - nanobot-data:/root/.nanobot
+      - nix-store:/nix
+      - ./skills:/mnt/skills:ro
+
+volumes:
+  nanobot-data:
+  nix-store:
