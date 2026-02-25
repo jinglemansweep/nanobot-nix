@@ -108,7 +108,7 @@
 
 - [x] **Smoke-test Nix availability** — Run `docker run --rm nanobot-nix:test nix --version` and verify it outputs a Nix version string (e.g. `nix (Nix) 2.x.x`). This confirms the PATH and Nix installation are correct.
 
-- [ ] **Smoke-test nix profile install** — Run `docker run --rm nanobot-nix:test nix profile install nixpkgs#hello && hello` and verify it installs the `hello` package and prints `Hello, world!`. This confirms flakes-based installation works in the container environment.
+- [x] **Smoke-test nix profile install** — Run `docker run --rm nanobot-nix:test nix profile install nixpkgs#hello && hello` and verify it installs the `hello` package and prints `Hello, world!`. This confirms flakes-based installation works in the container environment.
 
 - [ ] **Smoke-test nix search** — Run `docker run --rm nanobot-nix:test nix search nixpkgs hello` and verify it returns search results including the `hello` package. This confirms flakes-based search works without channel configuration.
 
