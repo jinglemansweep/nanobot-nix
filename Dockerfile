@@ -66,5 +66,7 @@ COPY scripts/ /opt/nanobot-nix/scripts/
 COPY skills/ /opt/nanobot-nix/skills/
 RUN chmod +x /opt/nanobot-nix/scripts/*.sh
 
+WORKDIR /opt/nanobot-nix
+
 ENTRYPOINT ["/opt/nanobot-nix/scripts/entrypoint.sh"]
 CMD []
