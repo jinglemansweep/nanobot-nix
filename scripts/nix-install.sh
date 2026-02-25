@@ -19,7 +19,8 @@ if [ "$NANOBOT_NIX_ALLOWED_PACKAGES" != "*" ]; then
     allowed=false
     IFS=',' read -ra entries <<< "$NANOBOT_NIX_ALLOWED_PACKAGES"
     for entry in "${entries[@]}"; do
-        trimmed="$(echo "$entry" | xargs)"
+        trimmed="${entry#"${entry%%[![:space:]]*}"}"
+        trimmed="${trimmed%"${trimmed##*[![:space:]]}"}"
         if [ "$trimmed" = "$package" ]; then
             allowed=true
             break
