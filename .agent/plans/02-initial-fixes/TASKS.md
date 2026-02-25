@@ -25,7 +25,7 @@
 
 ## Shellcheck Pre-commit Integration
 
-- [ ] **Add shellcheck hook to `.pre-commit-config.yaml`** — Append a new repo entry to `.pre-commit-config.yaml` after the existing `pre-commit-hooks` repo block. Add:
+- [x] **Add shellcheck hook to `.pre-commit-config.yaml`** — Append a new repo entry to `.pre-commit-config.yaml` after the existing `pre-commit-hooks` repo block. Add:
   ```yaml
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1

@@ -3,6 +3,7 @@ set -euo pipefail
 
 # Step 1: Source Nix profile
 if [ -f /root/.nix-profile/etc/profile.d/nix.sh ]; then
+  # shellcheck source=/dev/null
   . /root/.nix-profile/etc/profile.d/nix.sh
 fi
 
