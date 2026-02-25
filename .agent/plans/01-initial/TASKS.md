@@ -63,15 +63,15 @@
 
 ## Dockerfile
 
-- [ ] **Create `Dockerfile`** — Create the file `Dockerfile` at the repository root implementing the multi-stage build. Requires: Config Generation, Nix Wrapper Scripts, Entrypoint Script, and Skills groups to be complete.
-  - [ ] **Build args** — Declare `ARG NANOBOT_REPO=https://github.com/HKUDS/nanobot.git` and `ARG NANOBOT_REF=main` at the top.
-  - [ ] **Builder stage** — `FROM python:3.11-slim AS builder`. Install build dependencies: `apt-get update && apt-get install -y git curl nodejs npm && rm -rf /var/lib/apt/lists/*`. Install `uv`: `pip install uv`. Clone nanobot: `git clone --depth 1 --branch ${NANOBOT_REF} ${NANOBOT_REPO} /opt/nanobot`. Install nanobot: `cd /opt/nanobot && uv pip install --system -e .`. Build WhatsApp bridge: `cd /opt/nanobot/bridge && npm install && npm run build`.
-  - [ ] **Runtime stage** — `FROM python:3.11-slim`. Install apt baseline packages: `apt-get update && apt-get install -y --no-install-recommends git jq tmux curl ca-certificates gnupg xz-utils && rm -rf /var/lib/apt/lists/*`. Install GitHub CLI (`gh`) via the official apt repository. Install Node.js 20 via NodeSource setup script or official binary tarball.
-  - [ ] **Install Nix in runtime stage** — Set `ENV USER=root`. Install Nix in single-user mode: `curl -sL https://nixos.org/nix/install | sh -s -- --no-daemon`. Add `sandbox = false` to `/root/.config/nix/nix.conf`. Add Nix profile paths to `PATH` via `ENV PATH="/root/.nix-profile/bin:${PATH}"`. Add the `nixpkgs-unstable` channel: `nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs && nix-channel --update`.
-  - [ ] **Copy from builder** — Copy the nanobot installation from builder: `COPY --from=builder /opt/nanobot /opt/nanobot`. Copy Python site-packages: `COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages`. Copy nanobot entry point scripts: `COPY --from=builder /usr/local/bin/nanobot /usr/local/bin/nanobot`. Copy the bridge dist.
-  - [ ] **Copy distro files** — `COPY scripts/ /opt/nanobot-nix/scripts/` and `COPY skills/ /opt/nanobot-nix/skills/`. Ensure scripts are executable: `RUN chmod +x /opt/nanobot-nix/scripts/*.sh`.
-  - [ ] **Set ENTRYPOINT and CMD** — `ENTRYPOINT ["/opt/nanobot-nix/scripts/entrypoint.sh"]` and `CMD []`.
-  - [ ] **Verify** — Run `docker build -t nanobot-nix:test .` and confirm it completes without errors (full verification requires Docker).
+- [x] **Create `Dockerfile`** — Create the file `Dockerfile` at the repository root implementing the multi-stage build. Requires: Config Generation, Nix Wrapper Scripts, Entrypoint Script, and Skills groups to be complete.
+  - [x] **Build args** — Declare `ARG NANOBOT_REPO=https://github.com/HKUDS/nanobot.git` and `ARG NANOBOT_REF=main` at the top.
+  - [x] **Builder stage** — `FROM python:3.11-slim AS builder`. Install build dependencies: `apt-get update && apt-get install -y git curl nodejs npm && rm -rf /var/lib/apt/lists/*`. Install `uv`: `pip install uv`. Clone nanobot: `git clone --depth 1 --branch ${NANOBOT_REF} ${NANOBOT_REPO} /opt/nanobot`. Install nanobot: `cd /opt/nanobot && uv pip install --system -e .`. Build WhatsApp bridge: `cd /opt/nanobot/bridge && npm install && npm run build`.
+  - [x] **Runtime stage** — `FROM python:3.11-slim`. Install apt baseline packages: `apt-get update && apt-get install -y --no-install-recommends git jq tmux curl ca-certificates gnupg xz-utils && rm -rf /var/lib/apt/lists/*`. Install GitHub CLI (`gh`) via the official apt repository. Install Node.js 20 via NodeSource setup script or official binary tarball.
+  - [x] **Install Nix in runtime stage** — Set `ENV USER=root`. Install Nix in single-user mode: `curl -sL https://nixos.org/nix/install | sh -s -- --no-daemon`. Add `sandbox = false` to `/root/.config/nix/nix.conf`. Add Nix profile paths to `PATH` via `ENV PATH="/root/.nix-profile/bin:${PATH}"`. Add the `nixpkgs-unstable` channel: `nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs && nix-channel --update`.
+  - [x] **Copy from builder** — Copy the nanobot installation from builder: `COPY --from=builder /opt/nanobot /opt/nanobot`. Copy Python site-packages: `COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages`. Copy nanobot entry point scripts: `COPY --from=builder /usr/local/bin/nanobot /usr/local/bin/nanobot`. Copy the bridge dist.
+  - [x] **Copy distro files** — `COPY scripts/ /opt/nanobot-nix/scripts/` and `COPY skills/ /opt/nanobot-nix/skills/`. Ensure scripts are executable: `RUN chmod +x /opt/nanobot-nix/scripts/*.sh`.
+  - [x] **Set ENTRYPOINT and CMD** — `ENTRYPOINT ["/opt/nanobot-nix/scripts/entrypoint.sh"]` and `CMD []`.
+  - [x] **Verify** — Run `docker build -t nanobot-nix:test .` and confirm it completes without errors (full verification requires Docker).
 
 ## Docker Compose
 
