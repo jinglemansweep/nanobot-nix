@@ -101,11 +101,11 @@
   - [x] **Tools config** — Include: `NANOBOT_TOOLS_WEB_SEARCH_APIKEY=` (alias: `BRAVE_SEARCH_API_KEY`), `NANOBOT_TOOLS_MCPSERVERS=` (note: JSON blob, e.g. `{"server1":{"command":"npx","args":[...]}}`).
   - [x] **Nix config** — Include: `NANOBOT_NIX_ALLOWED_PACKAGES=` with comment explaining values (`*` = allow all, comma-separated list = allow only listed, empty = deny all).
 
-- [ ] **Create `README.md`** — Create the file `README.md` at the repository root with project documentation.
-  - [ ] **Header and overview** — Project name, one-sentence description ("Batteries-included Docker distribution of Nanobot with Nix self-provisioning"), badges (GHCR image, CI status).
-  - [ ] **Quick start** — Show: `docker compose up -d` for gateway mode, `docker compose run --rm cli` for interactive CLI. Reference `.env.example` for configuration.
-  - [ ] **Configuration reference** — Table of all `NANOBOT_*` env vars with description, type, default, and alias (if any). Explain the config generation pipeline and that `config.json` is regenerated on every container start.
-  - [ ] **Custom skills** — Explain how to mount custom skills at `./skills:/mnt/skills:ro`, the symlink injection mechanism, and that custom skills override built-in skills of the same name.
-  - [ ] **Nix self-provisioning** — Explain the `/nix` volume, the whitelist mechanism (`NANOBOT_NIX_ALLOWED_PACKAGES`), persistence behaviour, and garbage collection.
-  - [ ] **Docker secrets** — Explain that config values can be provided via Docker secrets at `/run/secrets/NANOBOT_*` as an alternative to env vars, with env vars taking precedence.
-  - [ ] **Building from source** — Show `docker build -t nanobot-nix .` with optional `--build-arg NANOBOT_REF=v0.1.4` to pin a specific version.
+- [x] **Create `README.md`** — Create the file `README.md` at the repository root with project documentation.
+  - [x] **Header and overview** — Project name, one-sentence description ("Batteries-included Docker distribution of Nanobot with Nix self-provisioning"), badges (GHCR image, CI status).
+  - [x] **Quick start** — Show: `docker compose up -d` for gateway mode, `docker compose run --rm cli` for interactive CLI. Reference `.env.example` for configuration.
+  - [x] **Configuration reference** — Table of all `NANOBOT_*` env vars with description, type, default, and alias (if any). Explain the config generation pipeline and that `config.json` is regenerated on every container start.
+  - [x] **Custom skills** — Explain how to mount custom skills at `./skills:/mnt/skills:ro`, the symlink injection mechanism, and that custom skills override built-in skills of the same name.
+  - [x] **Nix self-provisioning** — Explain the `/nix` volume, the whitelist mechanism (`NANOBOT_NIX_ALLOWED_PACKAGES`), persistence behaviour, and garbage collection.
+  - [x] **Docker secrets** — Explain that config values can be provided via Docker secrets at `/run/secrets/NANOBOT_*` as an alternative to env vars, with env vars taking precedence.
+  - [x] **Building from source** — Show `docker build -t nanobot-nix .` with optional `--build-arg NANOBOT_REF=v0.1.4` to pin a specific version.
