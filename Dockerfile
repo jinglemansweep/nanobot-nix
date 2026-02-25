@@ -47,7 +47,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y --no-install-recommends nodejs && \
     rm -rf /var/lib/apt/lists/*
 
-# Install Nix in single-user mode
+# Install Nix via DeterminateSystems installer
 RUN curl --proto '=https' --tlsv1.2 -sSf -L \
     https://install.determinate.systems/nix | sh -s -- install linux \
     --extra-conf "sandbox = false" --init none --no-confirm

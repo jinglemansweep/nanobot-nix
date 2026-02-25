@@ -28,7 +28,7 @@
 
 ### Update Dockerfile Comment
 
-- [ ] **Update the section comment** — Replace the comment on line 50 (`# Install Nix in single-user mode`) with `# Install Nix via DeterminateSystems installer` to accurately reflect the new approach.
+- [x] **Update the section comment** — Replace the comment on line 50 (`# Install Nix in single-user mode`) with `# Install Nix via DeterminateSystems installer` to accurately reflect the new approach.
 
 ## Entrypoint — Nix Profile Sourcing
 
