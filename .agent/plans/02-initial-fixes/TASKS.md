@@ -55,7 +55,7 @@
 
 ### Generate Tests
 
-- [ ] **Create `tests/test_config_generate.py`** — Create `tests/test_config_generate.py` with unit tests for the functions in `scripts/config_generate.py`. Import via `from scripts.config_generate import infer_type, set_nested, resolve_aliases, read_docker_secrets, generate`. Include the following test functions:
+- [x] **Create `tests/test_config_generate.py`** — Create `tests/test_config_generate.py` with unit tests for the functions in `scripts/config_generate.py`. Import via `from scripts.config_generate import infer_type, set_nested, resolve_aliases, read_docker_secrets, generate`. Include the following test functions:
   - `test_infer_type_bool_true` — Call `infer_type("SOME_FIELD", "true")` and assert result is `True` (Python bool).
   - `test_infer_type_bool_false` — Call `infer_type("SOME_FIELD", "false")` and assert result is `False`.
   - `test_infer_type_int` — Call `infer_type("SOME_FIELD", "42")` and assert result is `42` (int).
