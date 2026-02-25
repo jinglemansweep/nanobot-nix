@@ -1,5 +1,13 @@
 # Agent Rules
 
+## Python Virtual Environment
+
+- Before running any quality checks, tests, or Python tooling, ensure a virtualenv exists and is activated:
+  1. If `.venv/` does not exist, create it: `python3 -m venv .venv`
+  2. Activate it: `source .venv/bin/activate`
+  3. Install the project with dev dependencies: `pip install -e ".[dev]"`
+- All subsequent commands (`pre-commit`, `pytest`, etc.) must run inside this activated virtualenv.
+
 ## Quality Gates
 
 - Before completing any unit of work, run `pre-commit run --all-files` and fix ALL errors and warnings until it passes cleanly.
