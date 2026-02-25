@@ -4,7 +4,7 @@
 
 ## Project Foundation
 
-- [ ] **Create `.gitignore`** — Create `.gitignore` at the repository root with rules covering: `.env`, `__pycache__/`, `*.pyc`, `node_modules/`, `.DS_Store`, `*.swp`, `*.swo`, `.idea/`, `.vscode/`, `*.log`. Verify by running `git status` and confirming no ignored-pattern files appear.
+- [x] **Create `.gitignore`** — Create `.gitignore` at the repository root with rules covering: `.env`, `__pycache__/`, `*.pyc`, `node_modules/`, `.DS_Store`, `*.swp`, `*.swo`, `.idea/`, `.vscode/`, `*.log`. Verify by running `git status` and confirming no ignored-pattern files appear.
 
 ## Config Generation
 
