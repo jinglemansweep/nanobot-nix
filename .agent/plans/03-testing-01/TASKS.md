@@ -104,7 +104,7 @@
 
 ## Validation
 
-- [ ] **Build the Docker image locally** — Run `docker build -t nanobot-nix:test .` from the project root and verify the build completes without errors. The DeterminateSystems installer should install Nix successfully as root, and the PATH should be set correctly. No channel update step should appear in the build output.
+- [x] **Build the Docker image locally** — Run `docker build -t nanobot-nix:test .` from the project root and verify the build completes without errors. The DeterminateSystems installer should install Nix successfully as root, and the PATH should be set correctly. No channel update step should appear in the build output.
 
 - [ ] **Smoke-test Nix availability** — Run `docker run --rm nanobot-nix:test nix --version` and verify it outputs a Nix version string (e.g. `nix (Nix) 2.x.x`). This confirms the PATH and Nix installation are correct.
 
