@@ -16,7 +16,7 @@
 
 - [x] **Update entrypoint.sh Python invocation** — In `scripts/entrypoint.sh`, change line 15 from `python3 /opt/nanobot-nix/scripts/config_generate.py` to `python3 -m scripts.config_generate`. The `WORKDIR` in the Dockerfile ensures the working directory is `/opt/nanobot-nix`, so the module path resolves correctly.
 
-- [ ] **Create `pyproject.toml`** — Create `pyproject.toml` at the project root with the following content:
+- [x] **Create `pyproject.toml`** — Create `pyproject.toml` at the project root with the following content:
   - `[build-system]` section with `requires = ["setuptools>=68.0"]` and `build-backend = "setuptools.backends._legacy:_Backend"`
   - `[project]` section with `name = "nanobot-nix"`, `version = "0.1.0"`, `requires-python = ">=3.11"`
   - `[project.optional-dependencies]` section with `dev = ["pytest"]`
