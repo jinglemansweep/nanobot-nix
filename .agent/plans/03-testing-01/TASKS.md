@@ -52,7 +52,7 @@
 
 ### nix-install.sh
 
-- [ ] **Replace the already-installed check** — In `scripts/nix-install.sh`, replace lines 36–39 (the `nix-env -qaP` already-installed check):
+- [x] **Replace the already-installed check** — In `scripts/nix-install.sh`, replace lines 36–39 (the `nix-env -qaP` already-installed check):
   ```bash
   if nix-env -qaP "nixpkgs.$package" --installed 2>/dev/null | grep -q .; then
       echo "Package '$package' is already installed"
@@ -68,7 +68,7 @@
   ```
   The `nix profile list` command shows installed flake references; grepping for `nixpkgs#<package>` detects whether the package is already installed.
 
-- [ ] **Replace the installation command** — In `scripts/nix-install.sh`, replace lines 42–45 (the `nix-env -iA` installation block):
+- [x] **Replace the installation command** — In `scripts/nix-install.sh`, replace lines 42–45 (the `nix-env -iA` installation block):
   ```bash
   if ! nix-env -iA "nixpkgs.$package"; then
       echo "Failed to install package '$package'" >&2

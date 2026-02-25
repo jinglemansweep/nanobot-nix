@@ -33,13 +33,13 @@ if [ "$NANOBOT_NIX_ALLOWED_PACKAGES" != "*" ]; then
 fi
 
 # Already-installed check
-if nix-env -qaP "nixpkgs.$package" --installed 2>/dev/null | grep -q .; then
+if nix profile list 2>/dev/null | grep -q "nixpkgs#$package"; then
     echo "Package '$package' is already installed"
     exit 0
 fi
 
 # Installation
-if ! nix-env -iA "nixpkgs.$package"; then
+if ! nix profile install "nixpkgs#$package"; then
     echo "Failed to install package '$package'" >&2
     exit 1
 fi
