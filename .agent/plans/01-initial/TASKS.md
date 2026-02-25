@@ -32,12 +32,12 @@
 
 ## Nix Wrapper Scripts
 
-- [ ] **Create `scripts/nix-install.sh`** — Create the file `scripts/nix-install.sh` (executable, `#!/usr/bin/env bash`, `set -euo pipefail`) that installs a Nix package with whitelist enforcement.
-  - [ ] **Argument validation** — Accept exactly one argument: the package name. If no argument, print usage (`Usage: nix-install.sh <package>`) to stderr and exit 1.
-  - [ ] **Whitelist check** — Read `NANOBOT_NIX_ALLOWED_PACKAGES` from the environment. If unset or empty, print `"Nix package installation is disabled (NANOBOT_NIX_ALLOWED_PACKAGES is not set)"` to stderr and exit 1. If set to `*`, allow any package. Otherwise, split the value on commas, trim whitespace from each element, and check if the requested package is in the list. If not, print `"Package '<name>' is not in the allowed list"` to stderr and exit 1.
-  - [ ] **Already-installed check** — Run `nix-env -qaP "nixpkgs.$package" --installed 2>/dev/null` or check if the command the package provides is already on `PATH` via `command -v`. If already installed, print `"Package '<name>' is already installed"` and exit 0.
-  - [ ] **Installation** — Run `nix-env -iA "nixpkgs.$package"`. If it fails, print `"Failed to install package '<name>'"` to stderr and exit 1. On success, print `"Package '<name>' installed successfully"`.
-  - [ ] **Verify** — Run `chmod +x scripts/nix-install.sh` and confirm the script exits with the correct messages for: no args, empty whitelist, denied package, and wildcard whitelist (the actual install requires Nix, so logic-only testing is sufficient).
+- [x] **Create `scripts/nix-install.sh`** — Create the file `scripts/nix-install.sh` (executable, `#!/usr/bin/env bash`, `set -euo pipefail`) that installs a Nix package with whitelist enforcement.
+  - [x] **Argument validation** — Accept exactly one argument: the package name. If no argument, print usage (`Usage: nix-install.sh <package>`) to stderr and exit 1.
+  - [x] **Whitelist check** — Read `NANOBOT_NIX_ALLOWED_PACKAGES` from the environment. If unset or empty, print `"Nix package installation is disabled (NANOBOT_NIX_ALLOWED_PACKAGES is not set)"` to stderr and exit 1. If set to `*`, allow any package. Otherwise, split the value on commas, trim whitespace from each element, and check if the requested package is in the list. If not, print `"Package '<name>' is not in the allowed list"` to stderr and exit 1.
+  - [x] **Already-installed check** — Run `nix-env -qaP "nixpkgs.$package" --installed 2>/dev/null` or check if the command the package provides is already on `PATH` via `command -v`. If already installed, print `"Package '<name>' is already installed"` and exit 0.
+  - [x] **Installation** — Run `nix-env -iA "nixpkgs.$package"`. If it fails, print `"Failed to install package '<name>'"` to stderr and exit 1. On success, print `"Package '<name>' installed successfully"`.
+  - [x] **Verify** — Run `chmod +x scripts/nix-install.sh` and confirm the script exits with the correct messages for: no args, empty whitelist, denied package, and wildcard whitelist (the actual install requires Nix, so logic-only testing is sufficient).
 
 - [x] **Create `scripts/nix-search.sh`** — Create the file `scripts/nix-search.sh` (executable, `#!/usr/bin/env bash`, `set -euo pipefail`) that searches for available Nix packages.
   - [x] **Argument validation** — Accept exactly one argument: the search query. If no argument, print usage (`Usage: nix-search.sh <query>`) to stderr and exit 1.
