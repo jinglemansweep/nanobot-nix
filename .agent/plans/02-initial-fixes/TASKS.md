@@ -10,7 +10,7 @@
 
 - [x] **Create `scripts/__init__.py`** — Create an empty file at `scripts/__init__.py` to make the `scripts/` directory a proper Python package. The file should be empty (no content needed). Verify the file exists: `ls scripts/__init__.py`.
 
-- [ ] **Convert `config_generate.py` to use relative import** — In `scripts/config_generate.py`, change line 9 from `from config_schema import ALIASES, ARRAY_FIELDS, DEFAULTS, ENV_MAP` to `from .config_schema import ALIASES, ARRAY_FIELDS, DEFAULTS, ENV_MAP`. This enables importing the module as `scripts.config_generate` from the project root. Verify by running `python3 -c "from scripts.config_generate import generate"` from the project root.
+- [x] **Convert `config_generate.py` to use relative import** — In `scripts/config_generate.py`, change line 9 from `from config_schema import ALIASES, ARRAY_FIELDS, DEFAULTS, ENV_MAP` to `from .config_schema import ALIASES, ARRAY_FIELDS, DEFAULTS, ENV_MAP`. This enables importing the module as `scripts.config_generate` from the project root. Verify by running `python3 -c "from scripts.config_generate import generate"` from the project root.
 
 - [ ] **Add `WORKDIR` to Dockerfile** — In `Dockerfile`, add `WORKDIR /opt/nanobot-nix` on a new line immediately before the `ENTRYPOINT` directive (before line 69). This sets the working directory so `python3 -m scripts.config_generate` resolves the package correctly at runtime.
 

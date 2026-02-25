@@ -6,7 +6,7 @@ import logging
 import os
 import sys
 
-from config_schema import ALIASES, ARRAY_FIELDS, DEFAULTS, ENV_MAP
+from .config_schema import ALIASES, ARRAY_FIELDS, DEFAULTS, ENV_MAP
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s", stream=sys.stderr)
 log = logging.getLogger(__name__)
