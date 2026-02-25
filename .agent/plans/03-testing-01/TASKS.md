@@ -16,7 +16,7 @@
   ```
   This installs Nix with: no systemd init (`--init none`), non-interactive mode (`--no-confirm`), and disabled sandboxing for container compatibility (`--extra-conf "sandbox = false"`). No version pinning — always use the latest installer.
 
-- [ ] **Update the PATH environment variable** — Replace line 55 of `Dockerfile` (`ENV PATH="/root/.nix-profile/bin:${PATH}"`) with:
+- [x] **Update the PATH environment variable** — Replace line 55 of `Dockerfile` (`ENV PATH="/root/.nix-profile/bin:${PATH}"`) with:
   ```dockerfile
   ENV PATH="${PATH}:/nix/var/nix/profiles/default/bin"
   ```
