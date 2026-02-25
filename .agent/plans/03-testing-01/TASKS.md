@@ -86,7 +86,7 @@
 
 ### nix-search.sh
 
-- [ ] **Simplify the search command** — In `scripts/nix-search.sh`, replace lines 12–17 (the dual-path search logic):
+- [x] **Simplify the search command** — In `scripts/nix-search.sh`, replace lines 12–17 (the dual-path search logic):
   ```bash
   # Search execution — try `nix search` first, fall back to `nix-env` for older Nix
   if command -v nix &>/dev/null && nix search nixpkgs "$query" 2>/dev/null; then
