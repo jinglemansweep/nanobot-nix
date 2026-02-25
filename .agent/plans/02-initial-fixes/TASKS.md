@@ -91,7 +91,7 @@
 
 ## Documentation Skill
 
-- [ ] **Create `.claude/skills/documentation/SKILL.md`** — Create the file `.claude/skills/documentation/SKILL.md` defining a documentation audit skill. The skill should instruct the agent to:
+- [x] **Create `.claude/skills/documentation/SKILL.md`** — Create the file `.claude/skills/documentation/SKILL.md` defining a documentation audit skill. The skill should instruct the agent to:
   1. **Inventory** — List all documentation files: `README.md`, `CLAUDE.md`, `.env.example`, all `SKILL.md` files under `.claude/skills/`, and significant inline documentation (Python docstrings, shell script comments).
   2. **Cross-reference code** — For each documentation file:
      - Verify all environment variable names mentioned match keys in `scripts/config_schema.py`'s `ENV_MAP` and `ALIASES`.
