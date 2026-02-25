@@ -8,7 +8,7 @@
 
 - [x] **Remove the `ENV USER=root` line** — Delete line 51 (`ENV USER=root`) from `Dockerfile`. The DeterminateSystems installer handles root natively and does not need this variable.
 
-- [ ] **Replace the Nix installation RUN block** — Replace lines 52–54 of `Dockerfile` (the `RUN curl -sL https://nixos.org/nix/install | sh -s -- --no-daemon && ...` block) with the DeterminateSystems installer:
+- [x] **Replace the Nix installation RUN block** — Replace lines 52–54 of `Dockerfile` (the `RUN curl -sL https://nixos.org/nix/install | sh -s -- --no-daemon && ...` block) with the DeterminateSystems installer:
   ```dockerfile
   RUN curl --proto '=https' --tlsv1.2 -sSf -L \
       https://install.determinate.systems/nix | sh -s -- install linux \
