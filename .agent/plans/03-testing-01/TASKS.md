@@ -112,4 +112,4 @@
 
 - [x] **Smoke-test nix search** — Run `docker run --rm nanobot-nix:test nix search nixpkgs hello` and verify it returns search results including the `hello` package. This confirms flakes-based search works without channel configuration.
 
-- [ ] **Run existing tests and pre-commit** — Run `pre-commit run --all-files` and `pytest` to ensure no existing tests or linting rules are broken by the changes. Fix any failures before proceeding.
+- [x] **Run existing tests and pre-commit** — Run `pre-commit run --all-files` and `pytest` to ensure no existing tests or linting rules are broken by the changes. Fix any failures before proceeding.
