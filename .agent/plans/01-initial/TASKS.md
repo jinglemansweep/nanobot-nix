@@ -94,12 +94,12 @@
 
 ## Documentation
 
-- [ ] **Create `.env.example`** — Create the file `.env.example` at the repository root documenting all supported environment variables. Group by category with comments.
-  - [ ] **Provider API keys** — Include: `NANOBOT_PROVIDERS_OPENROUTER_APIKEY=`, `NANOBOT_PROVIDERS_OPENROUTER_APIBASE=`, `NANOBOT_PROVIDERS_ANTHROPIC_APIKEY=`, `NANOBOT_PROVIDERS_ANTHROPIC_APIBASE=`, `NANOBOT_PROVIDERS_OPENAI_APIKEY=`, `NANOBOT_PROVIDERS_DEEPSEEK_APIKEY=`, `NANOBOT_PROVIDERS_GROQ_APIKEY=`, `NANOBOT_PROVIDERS_CUSTOM_APIKEY=`, `NANOBOT_PROVIDERS_CUSTOM_APIBASE=`. Add their aliases as comments next to each (e.g. `# Alias: OPENROUTER_API_KEY`).
-  - [ ] **Agent config** — Include: `NANOBOT_AGENTS_DEFAULTS_MODEL=anthropic/claude-sonnet-4-5-20250514` (with comment showing alias `NANOBOT_MODEL`).
-  - [ ] **Channel config** — Include all Telegram, Discord, Slack, WhatsApp vars. Note that `ALLOWFROM` vars accept comma-separated lists (e.g. `NANOBOT_CHANNELS_TELEGRAM_ALLOWFROM=user1,user2`).
-  - [ ] **Tools config** — Include: `NANOBOT_TOOLS_WEB_SEARCH_APIKEY=` (alias: `BRAVE_SEARCH_API_KEY`), `NANOBOT_TOOLS_MCPSERVERS=` (note: JSON blob, e.g. `{"server1":{"command":"npx","args":[...]}}`).
-  - [ ] **Nix config** — Include: `NANOBOT_NIX_ALLOWED_PACKAGES=` with comment explaining values (`*` = allow all, comma-separated list = allow only listed, empty = deny all).
+- [x] **Create `.env.example`** — Create the file `.env.example` at the repository root documenting all supported environment variables. Group by category with comments.
+  - [x] **Provider API keys** — Include: `NANOBOT_PROVIDERS_OPENROUTER_APIKEY=`, `NANOBOT_PROVIDERS_OPENROUTER_APIBASE=`, `NANOBOT_PROVIDERS_ANTHROPIC_APIKEY=`, `NANOBOT_PROVIDERS_ANTHROPIC_APIBASE=`, `NANOBOT_PROVIDERS_OPENAI_APIKEY=`, `NANOBOT_PROVIDERS_DEEPSEEK_APIKEY=`, `NANOBOT_PROVIDERS_GROQ_APIKEY=`, `NANOBOT_PROVIDERS_CUSTOM_APIKEY=`, `NANOBOT_PROVIDERS_CUSTOM_APIBASE=`. Add their aliases as comments next to each (e.g. `# Alias: OPENROUTER_API_KEY`).
+  - [x] **Agent config** — Include: `NANOBOT_AGENTS_DEFAULTS_MODEL=anthropic/claude-sonnet-4-5-20250514` (with comment showing alias `NANOBOT_MODEL`).
+  - [x] **Channel config** — Include all Telegram, Discord, Slack, WhatsApp vars. Note that `ALLOWFROM` vars accept comma-separated lists (e.g. `NANOBOT_CHANNELS_TELEGRAM_ALLOWFROM=user1,user2`).
+  - [x] **Tools config** — Include: `NANOBOT_TOOLS_WEB_SEARCH_APIKEY=` (alias: `BRAVE_SEARCH_API_KEY`), `NANOBOT_TOOLS_MCPSERVERS=` (note: JSON blob, e.g. `{"server1":{"command":"npx","args":[...]}}`).
+  - [x] **Nix config** — Include: `NANOBOT_NIX_ALLOWED_PACKAGES=` with comment explaining values (`*` = allow all, comma-separated list = allow only listed, empty = deny all).
 
 - [ ] **Create `README.md`** — Create the file `README.md` at the repository root with project documentation.
   - [ ] **Header and overview** — Project name, one-sentence description ("Batteries-included Docker distribution of Nanobot with Nix self-provisioning"), badges (GHCR image, CI status).
