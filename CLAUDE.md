@@ -17,3 +17,7 @@
 
 - Do NOT include "Co-Authored-By" or any authorship lines in commit messages.
 - If the current branch is `main`, ask the user to confirm a new branch name before making any changes. Branch names must follow the convention: `<type>/<short-description>` (e.g. `feat/config-generator`, `fix/entrypoint-nix-path`, `chore/pre-commit-setup`).
+
+## Documentation
+
+- After completing a large unit of work or before a large commit, run the `/documentation` skill to audit all project documentation for accuracy and completeness.

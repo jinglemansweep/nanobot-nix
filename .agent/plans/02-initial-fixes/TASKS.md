@@ -111,7 +111,7 @@
 
 - [x] **Add pytest to quality gate instructions in `CLAUDE.md`** — In `CLAUDE.md`, update the Quality Gates section. After the existing bullet about `pre-commit run --all-files`, modify the second bullet to explicitly mention pytest: change `If any test suites exist in the project, run ALL tests and resolve ALL failures before proceeding. No skipped or ignored tests.` to `Run \`pytest\` and resolve ALL test failures before proceeding. No skipped or ignored tests.`. This makes the test command explicit rather than conditional.
 
-- [ ] **Add documentation skill invocation rule to `CLAUDE.md`** — In `CLAUDE.md`, add a new section after the Git section:
+- [x] **Add documentation skill invocation rule to `CLAUDE.md`** — In `CLAUDE.md`, add a new section after the Git section:
   ```markdown
   ## Documentation
 
