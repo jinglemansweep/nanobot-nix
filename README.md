@@ -2,7 +2,8 @@
 
 Batteries-included Docker distribution of [Nanobot](https://github.com/HKUDS/nanobot) with Nix self-provisioning.
 
-[![CI](https://github.com/jinglemansweep/nanobot-nix/actions/workflows/build.yml/badge.svg)](https://github.com/jinglemansweep/nanobot-nix/actions/workflows/build.yml)
+[![Build](https://github.com/jinglemansweep/nanobot-nix/actions/workflows/build.yml/badge.svg)](https://github.com/jinglemansweep/nanobot-nix/actions/workflows/build.yml)
+[![Test](https://github.com/jinglemansweep/nanobot-nix/actions/workflows/test.yml/badge.svg)](https://github.com/jinglemansweep/nanobot-nix/actions/workflows/test.yml)
 [![GHCR](https://img.shields.io/badge/ghcr.io-jinglemansweep%2Fnanobot--nix-blue)](https://ghcr.io/jinglemansweep/nanobot-nix)
 
 ## Quick Start
@@ -129,6 +130,15 @@ As an alternative to environment variables, config values can be provided via Do
 The config generator reads secrets on startup and sets them as environment variables. If both a secret and an environment variable exist for the same key, the **environment variable takes precedence**.
 
 ## Building from Source
+
+Using Docker Compose (recommended — uses the build config in `docker-compose.yml`):
+
+```bash
+docker compose build
+docker compose up --build
+```
+
+Or using plain Docker:
 
 ```bash
 docker build -t nanobot-nix .
