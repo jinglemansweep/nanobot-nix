@@ -32,7 +32,7 @@
 
 ## Entrypoint — Nix Profile Sourcing
 
-- [ ] **Update the Nix profile source path in entrypoint** — In `scripts/entrypoint.sh`, replace lines 5–8:
+- [x] **Update the Nix profile source path in entrypoint** — In `scripts/entrypoint.sh`, replace lines 5–8:
   ```bash
   if [ -f /root/.nix-profile/etc/profile.d/nix.sh ]; then
     # shellcheck source=/dev/null
