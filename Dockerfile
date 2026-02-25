@@ -48,7 +48,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Nix in single-user mode
-ENV USER=root
 RUN curl -sL https://nixos.org/nix/install | sh -s -- --no-daemon && \
     mkdir -p /root/.config/nix && \
     echo "sandbox = false" >> /root/.config/nix/nix.conf
