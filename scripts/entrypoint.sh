@@ -12,7 +12,7 @@ if [ ! -d ~/.nanobot/workspace/ ]; then
 fi
 
 # Step 3: Config generation
-python3 /opt/nanobot-nix/scripts/config_generate.py
+python3 -m scripts.config_generate
 
 # Step 4: Inject skills
 mkdir -p ~/.nanobot/workspace/skills/
