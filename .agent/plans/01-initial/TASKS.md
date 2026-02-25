@@ -83,14 +83,14 @@
 
 ## CI/CD
 
-- [ ] **Create `.github/workflows/build.yml`** — Create the file `.github/workflows/build.yml` implementing the GitHub Actions CI/CD pipeline.
-  - [ ] **Triggers** — `on: push: branches: [main]`, `on: push: tags: ["v*"]`, `on: schedule: cron: "0 4 * * 1"` (Monday 04:00 UTC), `on: workflow_dispatch: inputs: nanobot_ref: description: "Nanobot git ref to build" required: false default: "main"`.
-  - [ ] **Permissions** — Set `permissions: contents: read` and `packages: write` at the workflow level.
-  - [ ] **Registry login** — Job step using `docker/login-action@v3` with `registry: ghcr.io`, `username: ${{ github.actor }}`, `password: ${{ secrets.GITHUB_TOKEN }}`.
-  - [ ] **Docker metadata** — Job step using `docker/metadata-action@v5` with `images: ghcr.io/jinglemansweep/nanobot-nix`. Tags: `type=ref,event=branch`, `type=ref,event=tag`, `type=sha`, `type=raw,value=latest,enable={{is_default_branch}}`, `type=raw,value={{date 'YYYYMMDD'}},enable=${{ github.event_name == 'schedule' }}`.
-  - [ ] **Build and push** — Job step using `docker/build-push-action@v6` with `context: .`, `platforms: linux/amd64`, `push: true`, `tags: ${{ steps.meta.outputs.tags }}`, `labels: ${{ steps.meta.outputs.labels }}`, `build-args:` including `NANOBOT_REPO=https://github.com/HKUDS/nanobot.git` and `NANOBOT_REF=${{ github.event.inputs.nanobot_ref || 'main' }}`.
-  - [ ] **Smoke test** — Add a step before the push step (or set `load: true` on a test build) that runs `docker run --rm <image> status` and asserts a zero exit code. This validates the image boots correctly.
-  - [ ] **Verify** — Confirm the YAML is valid by running `python3 -c "import yaml; yaml.safe_load(open('.github/workflows/build.yml'))"` (or equivalent linting).
+- [x] **Create `.github/workflows/build.yml`** — Create the file `.github/workflows/build.yml` implementing the GitHub Actions CI/CD pipeline.
+  - [x] **Triggers** — `on: push: branches: [main]`, `on: push: tags: ["v*"]`, `on: schedule: cron: "0 4 * * 1"` (Monday 04:00 UTC), `on: workflow_dispatch: inputs: nanobot_ref: description: "Nanobot git ref to build" required: false default: "main"`.
+  - [x] **Permissions** — Set `permissions: contents: read` and `packages: write` at the workflow level.
+  - [x] **Registry login** — Job step using `docker/login-action@v3` with `registry: ghcr.io`, `username: ${{ github.actor }}`, `password: ${{ secrets.GITHUB_TOKEN }}`.
+  - [x] **Docker metadata** — Job step using `docker/metadata-action@v5` with `images: ghcr.io/jinglemansweep/nanobot-nix`. Tags: `type=ref,event=branch`, `type=ref,event=tag`, `type=sha`, `type=raw,value=latest,enable={{is_default_branch}}`, `type=raw,value={{date 'YYYYMMDD'}},enable=${{ github.event_name == 'schedule' }}`.
+  - [x] **Build and push** — Job step using `docker/build-push-action@v6` with `context: .`, `platforms: linux/amd64`, `push: true`, `tags: ${{ steps.meta.outputs.tags }}`, `labels: ${{ steps.meta.outputs.labels }}`, `build-args:` including `NANOBOT_REPO=https://github.com/HKUDS/nanobot.git` and `NANOBOT_REF=${{ github.event.inputs.nanobot_ref || 'main' }}`.
+  - [x] **Smoke test** — Add a step before the push step (or set `load: true` on a test build) that runs `docker run --rm <image> status` and asserts a zero exit code. This validates the image boots correctly.
+  - [x] **Verify** — Confirm the YAML is valid by running `python3 -c "import yaml; yaml.safe_load(open('.github/workflows/build.yml'))"` (or equivalent linting).
 
 ## Documentation
 
