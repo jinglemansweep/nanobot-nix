@@ -38,7 +38,7 @@
 
 - [x] **Fix shellcheck warnings in `scripts/entrypoint.sh`** — Run shellcheck against `scripts/entrypoint.sh` and fix all warnings. Potential issues: the `source` command on line 6 (`. /root/.nix-profile/etc/profile.d/nix.sh`) may trigger SC1091 (not following sourced file). If shellcheck cannot follow the path, add a directive `# shellcheck source=/dev/null` above the line only if the warning is about a file that doesn't exist in the repo context. Fix any other warnings. Verify by re-running `pre-commit run shellcheck --all-files` with no warnings for this file.
 
-- [ ] **Fix shellcheck warnings in `scripts/nix-search.sh`** — Run shellcheck against `scripts/nix-search.sh` and fix all warnings. Potential issue: line 13 uses `&>/dev/null` which is valid bash but shellcheck may flag patterns related to the `nix search` command or quoting. Fix any reported issues. Verify by re-running `pre-commit run shellcheck --all-files` with no warnings for this file.
+- [x] **Fix shellcheck warnings in `scripts/nix-search.sh`** — Run shellcheck against `scripts/nix-search.sh` and fix all warnings. Potential issue: line 13 uses `&>/dev/null` which is valid bash but shellcheck may flag patterns related to the `nix search` command or quoting. Fix any reported issues. Verify by re-running `pre-commit run shellcheck --all-files` with no warnings for this file.
 
 ## Pytest Test Suite
 
