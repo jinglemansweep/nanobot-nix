@@ -30,60 +30,74 @@ See [`.env.example`](.env.example) for all available configuration options.
 
 ## Configuration Reference
 
-All configuration is driven by environment variables prefixed with `NANOBOT_`. On every container start, the entrypoint runs a config generator that reads these variables and writes `~/.nanobot/config.json`. This means config changes via env vars take effect immediately on restart.
-
-Several common environment variables also have shorter **aliases** for convenience. When both the alias and the canonical variable are set, the canonical variable takes precedence.
+All configuration is driven by environment variables. Nanobot uses Pydantic `BaseSettings` with `env_prefix="NANOBOT_"` and `env_nested_delimiter="__"`, so all config fields are available as env vars directly. The naming convention is: `NANOBOT_` prefix, `__` (double underscore) between nesting levels, and uppercase snake_case field names (e.g., `NANOBOT_PROVIDERS__ANTHROPIC__API_KEY`).
 
 ### Provider API Keys
 
-| Variable | Description | Alias |
-|----------|-------------|-------|
-| `NANOBOT_PROVIDERS_OPENROUTER_APIKEY` | OpenRouter API key | `OPENROUTER_API_KEY` |
-| `NANOBOT_PROVIDERS_OPENROUTER_APIBASE` | OpenRouter API base URL | |
-| `NANOBOT_PROVIDERS_ANTHROPIC_APIKEY` | Anthropic API key | `ANTHROPIC_API_KEY` |
-| `NANOBOT_PROVIDERS_ANTHROPIC_APIBASE` | Anthropic API base URL | |
-| `NANOBOT_PROVIDERS_OPENAI_APIKEY` | OpenAI API key | `OPENAI_API_KEY` |
-| `NANOBOT_PROVIDERS_DEEPSEEK_APIKEY` | DeepSeek API key | `DEEPSEEK_API_KEY` |
-| `NANOBOT_PROVIDERS_GROQ_APIKEY` | Groq API key | `GROQ_API_KEY` |
-| `NANOBOT_PROVIDERS_ZHIPU_APIKEY` | Zhipu AI (Z.AI/GLM) API key | `ZHIPU_API_KEY` |
-| `NANOBOT_PROVIDERS_ZHIPU_APIBASE` | Zhipu AI API base URL (default: `https://api.z.ai/api/coding/paas/v4`) | |
-| `NANOBOT_PROVIDERS_CUSTOM_APIKEY` | Custom provider API key | |
-| `NANOBOT_PROVIDERS_CUSTOM_APIBASE` | Custom provider API base URL | |
+| Variable | Description |
+|----------|-------------|
+| `NANOBOT_PROVIDERS__ANTHROPIC__API_KEY` | Anthropic API key |
+| `NANOBOT_PROVIDERS__ANTHROPIC__API_BASE` | Anthropic API base URL |
+| `NANOBOT_PROVIDERS__OPENAI__API_KEY` | OpenAI API key |
+| `NANOBOT_PROVIDERS__OPENAI__API_BASE` | OpenAI API base URL |
+| `NANOBOT_PROVIDERS__OPENROUTER__API_KEY` | OpenRouter API key |
+| `NANOBOT_PROVIDERS__OPENROUTER__API_BASE` | OpenRouter API base URL |
+| `NANOBOT_PROVIDERS__DEEPSEEK__API_KEY` | DeepSeek API key |
+| `NANOBOT_PROVIDERS__DEEPSEEK__API_BASE` | DeepSeek API base URL |
+| `NANOBOT_PROVIDERS__GROQ__API_KEY` | Groq API key |
+| `NANOBOT_PROVIDERS__GROQ__API_BASE` | Groq API base URL |
+| `NANOBOT_PROVIDERS__ZHIPU__API_KEY` | Zhipu AI (Z.AI/GLM) API key |
+| `NANOBOT_PROVIDERS__ZHIPU__API_BASE` | Zhipu AI API base URL |
+| `NANOBOT_PROVIDERS__CUSTOM__API_KEY` | Custom provider API key |
+| `NANOBOT_PROVIDERS__CUSTOM__API_BASE` | Custom provider API base URL |
 
 ### Agent Config
 
-| Variable | Description | Default | Alias |
-|----------|-------------|---------|-------|
-| `NANOBOT_AGENTS_DEFAULTS_MODEL` | Default model for agents | `anthropic/claude-sonnet-4-5-20250514` | `NANOBOT_MODEL` |
+| Variable | Description |
+|----------|-------------|
+| `NANOBOT_AGENTS__DEFAULTS__MODEL` | Default model for agents |
+| `NANOBOT_AGENTS__DEFAULTS__PROVIDER` | Default provider |
+| `NANOBOT_AGENTS__DEFAULTS__MAX_TOKENS` | Max tokens per response |
+| `NANOBOT_AGENTS__DEFAULTS__TEMPERATURE` | Sampling temperature |
 
 ### Channel Config
 
-| Variable | Description | Type | Alias |
-|----------|-------------|------|-------|
-| `NANOBOT_CHANNELS_TELEGRAM_ENABLED` | Enable Telegram channel | `bool` | |
-| `NANOBOT_CHANNELS_TELEGRAM_TOKEN` | Telegram bot token | `string` | `TELEGRAM_BOT_TOKEN` |
-| `NANOBOT_CHANNELS_TELEGRAM_ALLOWFROM` | Allowed Telegram users | `comma-separated list` | |
-| `NANOBOT_CHANNELS_DISCORD_ENABLED` | Enable Discord channel | `bool` | |
-| `NANOBOT_CHANNELS_DISCORD_TOKEN` | Discord bot token | `string` | |
-| `NANOBOT_CHANNELS_DISCORD_ALLOWFROM` | Allowed Discord users | `comma-separated list` | |
-| `NANOBOT_CHANNELS_SLACK_ENABLED` | Enable Slack channel | `bool` | |
-| `NANOBOT_CHANNELS_SLACK_APPTOKEN` | Slack app token | `string` | |
-| `NANOBOT_CHANNELS_SLACK_BOTTOKEN` | Slack bot token | `string` | |
-| `NANOBOT_CHANNELS_SLACK_ALLOWFROM` | Allowed Slack users | `comma-separated list` | |
-| `NANOBOT_CHANNELS_WHATSAPP_ENABLED` | Enable WhatsApp channel | `bool` | |
-| `NANOBOT_CHANNELS_WHATSAPP_ALLOWFROM` | Allowed WhatsApp users | `comma-separated list` | |
+| Variable | Description | Type |
+|----------|-------------|------|
+| `NANOBOT_CHANNELS__TELEGRAM__ENABLED` | Enable Telegram channel | `bool` |
+| `NANOBOT_CHANNELS__TELEGRAM__TOKEN` | Telegram bot token | `string` |
+| `NANOBOT_CHANNELS__TELEGRAM__ALLOW_FROM` | Allowed Telegram users | `JSON array` |
+| `NANOBOT_CHANNELS__DISCORD__ENABLED` | Enable Discord channel | `bool` |
+| `NANOBOT_CHANNELS__DISCORD__TOKEN` | Discord bot token | `string` |
+| `NANOBOT_CHANNELS__DISCORD__ALLOW_FROM` | Allowed Discord users | `JSON array` |
+| `NANOBOT_CHANNELS__SLACK__ENABLED` | Enable Slack channel | `bool` |
+| `NANOBOT_CHANNELS__SLACK__APP_TOKEN` | Slack app token | `string` |
+| `NANOBOT_CHANNELS__SLACK__BOT_TOKEN` | Slack bot token | `string` |
+| `NANOBOT_CHANNELS__EMAIL__ENABLED` | Enable Email channel | `bool` |
+| `NANOBOT_CHANNELS__EMAIL__IMAP_HOST` | IMAP server hostname | `string` |
+| `NANOBOT_CHANNELS__EMAIL__SMTP_HOST` | SMTP server hostname | `string` |
+| `NANOBOT_CHANNELS__EMAIL__ALLOW_FROM` | Allowed email addresses | `JSON array` |
+| `NANOBOT_CHANNELS__MATRIX__ENABLED` | Enable Matrix channel | `bool` |
+| `NANOBOT_CHANNELS__MATRIX__HOMESERVER` | Matrix homeserver URL | `string` |
+| `NANOBOT_CHANNELS__MATRIX__ACCESS_TOKEN` | Matrix access token | `string` |
+| `NANOBOT_CHANNELS__MATRIX__ALLOW_FROM` | Allowed Matrix users | `JSON array` |
+| `NANOBOT_CHANNELS__WHATSAPP__ENABLED` | Enable WhatsApp channel | `bool` |
+| `NANOBOT_CHANNELS__WHATSAPP__ALLOW_FROM` | Allowed WhatsApp users | `JSON array` |
 
 ### Tools Config
 
-| Variable | Description | Type | Alias |
-|----------|-------------|------|-------|
-| `NANOBOT_TOOLS_WEB_SEARCH_APIKEY` | Brave Search API key | `string` | `BRAVE_SEARCH_API_KEY` |
-| `NANOBOT_TOOLS_MCPSERVERS` | MCP server definitions | `JSON` | |
+| Variable | Description | Type |
+|----------|-------------|------|
+| `NANOBOT_TOOLS__WEB__SEARCH__API_KEY` | Brave Search API key | `string` |
+| `NANOBOT_TOOLS__WEB__SEARCH__MAX_RESULTS` | Max search results | `int` |
+| `NANOBOT_TOOLS__EXEC__TIMEOUT` | Exec tool timeout | `int` |
+| `NANOBOT_TOOLS__RESTRICT_TO_WORKSPACE` | Restrict tools to workspace | `bool` |
+| `NANOBOT_TOOLS__MCP_SERVERS` | MCP server definitions | `JSON` |
 
-The `NANOBOT_TOOLS_MCPSERVERS` value should be a JSON object, e.g.:
+The `NANOBOT_TOOLS__MCP_SERVERS` value should be a JSON object, e.g.:
 
 ```
-NANOBOT_TOOLS_MCPSERVERS={"server1":{"command":"npx","args":["@modelcontextprotocol/server-filesystem","/data"]}}
+NANOBOT_TOOLS__MCP_SERVERS={"server1":{"command":"npx","args":["@modelcontextprotocol/server-filesystem","/data"]}}
 ```
 
 ### Nix Config
@@ -127,9 +141,9 @@ nix-collect-garbage -d
 
 ## Docker Secrets
 
-As an alternative to environment variables, config values can be provided via Docker secrets. Place files in `/run/secrets/` with names matching the `NANOBOT_*` variable names (e.g., `/run/secrets/NANOBOT_PROVIDERS_OPENROUTER_APIKEY`).
+As an alternative to environment variables, config values can be provided via Docker secrets. Place files in `/run/secrets/` with names matching the `NANOBOT_*` variable names (e.g., `/run/secrets/NANOBOT_PROVIDERS__ANTHROPIC__API_KEY`).
 
-The config generator reads secrets on startup and sets them as environment variables. If both a secret and an environment variable exist for the same key, the **environment variable takes precedence**.
+The entrypoint reads secrets on startup and exports them as environment variables. If both a secret and an environment variable exist for the same key, the **environment variable takes precedence**.
 
 ## Building from Source
 

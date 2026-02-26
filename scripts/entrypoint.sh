@@ -12,8 +12,16 @@ if [ ! -d ~/.nanobot/workspace/ ]; then
   nanobot onboard
 fi
 
-# Step 3: Config generation
-python3 -m scripts.config_generate
+# Step 3: Docker secrets → env vars
+if [ -d /run/secrets ]; then
+  for secret in /run/secrets/NANOBOT_*; do
+    [ -f "$secret" ] || continue
+    name="$(basename "$secret")"
+    if [ -z "${!name:-}" ]; then
+      export "$name"="$(tr -d '\n' < "$secret")"
+    fi
+  done
+fi
 
 # Step 4: Inject skills
 # shellcheck disable=SC1091
