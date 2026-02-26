@@ -14,7 +14,7 @@
 
 ### Tests for Deleted Modules
 
-- [ ] **Delete `tests/test_config_schema.py`** — Remove the file `tests/test_config_schema.py`. These tests cover the deleted `config_schema.py` module. Verify: `ls tests/test_config_schema.py` returns "No such file".
+- [x] **Delete `tests/test_config_schema.py`** — Remove the file `tests/test_config_schema.py`. These tests cover the deleted `config_schema.py` module. Verify: `ls tests/test_config_schema.py` returns "No such file".
 
 - [ ] **Delete `tests/test_config_generate.py`** — Remove the file `tests/test_config_generate.py`. These tests cover the deleted `config_generate.py` module. Verify: `ls tests/test_config_generate.py` returns "No such file".
 
