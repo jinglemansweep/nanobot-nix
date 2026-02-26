@@ -44,6 +44,11 @@ def infer_type(suffix, value):
     if value.lower() in ("true", "false"):
         return value.lower() == "true"
 
+    if suffix in ARRAY_FIELDS:
+        if "," in value:
+            return [item.strip() for item in value.split(",")]
+        return [value]
+
     try:
         return int(value)
     except ValueError:
@@ -56,9 +61,6 @@ def infer_type(suffix, value):
 
     if value.startswith("[") or value.startswith("{"):
         return json.loads(value)
-
-    if suffix in ARRAY_FIELDS and "," in value:
-        return [item.strip() for item in value.split(",")]
 
     return value
 
