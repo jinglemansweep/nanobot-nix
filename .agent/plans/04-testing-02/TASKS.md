@@ -15,7 +15,7 @@
 
 ## Environment Example Update
 
-- [ ] **Add Zhipu env vars to `.env.example`** — In `.env.example`, add two new lines in the "Provider API Keys" section, after the `NANOBOT_PROVIDERS_GROQ_APIKEY=` line and before the `NANOBOT_PROVIDERS_CUSTOM_APIKEY=` line:
+- [x] **Add Zhipu env vars to `.env.example`** — In `.env.example`, add two new lines in the "Provider API Keys" section, after the `NANOBOT_PROVIDERS_GROQ_APIKEY=` line and before the `NANOBOT_PROVIDERS_CUSTOM_APIKEY=` line:
   - `NANOBOT_PROVIDERS_ZHIPU_APIKEY=           # Alias: ZHIPU_API_KEY`
   - `NANOBOT_PROVIDERS_ZHIPU_APIBASE=`
   - Maintain the same alignment as the existing alias comments (column-align the `#` with the other alias comments above).
