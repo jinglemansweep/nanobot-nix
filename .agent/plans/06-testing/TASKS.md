@@ -29,12 +29,12 @@
 
 ### Extract Whitelist-Checking Logic
 
-- [ ] **Extract `check_package_allowed` function in `scripts/nix-install.sh`** — Refactor `scripts/nix-install.sh` to extract lines 13–33 (the whitelist check block) into a function named `check_package_allowed` that takes a single argument `$1` (the package name) and reads `NANOBOT_NIX_ALLOWED_PACKAGES` from the environment. The function must:
+- [x] **Extract `check_package_allowed` function in `scripts/nix-install.sh`** — Refactor `scripts/nix-install.sh` to extract lines 13–33 (the whitelist check block) into a function named `check_package_allowed` that takes a single argument `$1` (the package name) and reads `NANOBOT_NIX_ALLOWED_PACKAGES` from the environment. The function must:
   1. If `NANOBOT_NIX_ALLOWED_PACKAGES` is unset or empty (`[ -z "${NANOBOT_NIX_ALLOWED_PACKAGES:-}" ]`), print `"Nix package installation is disabled (NANOBOT_NIX_ALLOWED_PACKAGES is not set)"` to stderr and `return 1`
   2. If the value equals `"*"` exactly (`[ "$NANOBOT_NIX_ALLOWED_PACKAGES" = "*" ]`), `return 0` (allow all)
   3. Otherwise, split on commas with `IFS=',' read -ra entries <<< "$NANOBOT_NIX_ALLOWED_PACKAGES"`, trim leading/trailing whitespace from each entry using the existing `${entry#...}` / `${entry%...}` pattern substitution, and check if the trimmed entry equals the package name. If found, `return 0`. If loop completes without a match, print `"Package '$1' is not in the allowed list"` to stderr and `return 1`
-  - [ ] Update the main body of `nix-install.sh` to call `check_package_allowed "$package"` instead of having the logic inline. The `|| exit 1` after the call handles the non-zero return.
-  - [ ] Add a source guard at the top of the function definition section so the file can be sourced for testing without executing the main body. Use the pattern: define the function at the top, then wrap the main execution (argument validation through installation) in `if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then ... fi`
+  - [x] Update the main body of `nix-install.sh` to call `check_package_allowed "$package"` instead of having the logic inline. The `|| exit 1` after the call handles the non-zero return.
+  - [x] Add a source guard at the top of the function definition section so the file can be sourced for testing without executing the main body. Use the pattern: define the function at the top, then wrap the main execution (argument validation through installation) in `if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then ... fi`
 
 ### Investigate Allowed-Packages Env Chain
 
