@@ -66,7 +66,7 @@
 
 ## Docker User/Permissions Documentation
 
-- [ ] **Document Docker user/permissions findings in `CONCERNS.md`** — Add a new section `## Docker User/Permissions` to `.agent/plans/06-testing/CONCERNS.md` documenting:
+- [x] **Document Docker user/permissions findings in `CONCERNS.md`** — Add a new section `## Docker User/Permissions` to `.agent/plans/06-testing/CONCERNS.md` documenting:
   1. The container currently runs as root because: Nix requires root (or multi-user daemon setup), the workspace is at `/root/.nanobot/`, and various tools expect root permissions.
   2. When users mount local files (e.g. `./skills:/mnt/skills:ro`), files created by the container are owned by root, which can cause permission conflicts on the host.
   3. Recommended future approach: create a non-root user, configure Nix single-user mode for that user, adjust workspace path to `/home/<user>/.nanobot/`, and use `--user` flag or `USER` directive. This requires its own implementation plan.
