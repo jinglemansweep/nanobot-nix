@@ -71,6 +71,13 @@ def test_resolve_aliases(monkeypatch):
     assert os.environ["NANOBOT_PROVIDERS_OPENROUTER_APIKEY"] == "test-key"
 
 
+def test_resolve_zhipu_alias(monkeypatch):
+    monkeypatch.setenv("ZHIPU_API_KEY", "alias-zhipu-key")
+    monkeypatch.delenv("NANOBOT_PROVIDERS_ZHIPU_APIKEY", raising=False)
+    resolve_aliases()
+    assert os.environ["NANOBOT_PROVIDERS_ZHIPU_APIKEY"] == "alias-zhipu-key"
+
+
 def test_resolve_aliases_does_not_overwrite(monkeypatch):
     monkeypatch.setenv("OPENROUTER_API_KEY", "alias-val")
     monkeypatch.setenv("NANOBOT_PROVIDERS_OPENROUTER_APIKEY", "canonical-val")

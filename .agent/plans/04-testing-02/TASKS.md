@@ -36,7 +36,7 @@
   - Assert `config["agents"]["defaults"]["model"] == "anthropic/claude-sonnet-4-5-20250514"` (defaults still applied).
   - Requires: Config Schema Extension group to be complete.
 
-- [ ] **Add Zhipu alias resolution test to `tests/test_config_generate.py`** — Add a new test function `test_resolve_zhipu_alias` to `tests/test_config_generate.py`, following the pattern of the existing `test_resolve_aliases` test (lines 67–71). The test should:
+- [x] **Add Zhipu alias resolution test to `tests/test_config_generate.py`** — Add a new test function `test_resolve_zhipu_alias` to `tests/test_config_generate.py`, following the pattern of the existing `test_resolve_aliases` test (lines 67–71). The test should:
   - Use `monkeypatch.setenv("ZHIPU_API_KEY", "alias-zhipu-key")`.
   - Use `monkeypatch.delenv("NANOBOT_PROVIDERS_ZHIPU_APIKEY", raising=False)`.
   - Call `resolve_aliases()`.
