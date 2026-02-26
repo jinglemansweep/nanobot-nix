@@ -9,6 +9,3 @@ requires-python = ">=3.11"
 
 [project.optional-dependencies]
 dev = ["pytest"]
-
-[tool.setuptools.packages.find]
-include = ["scripts*"]

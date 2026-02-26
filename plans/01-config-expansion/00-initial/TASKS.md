@@ -37,7 +37,7 @@
 
 ## Build Config
 
-- [ ] **Remove `scripts*` from setuptools package find in `pyproject.toml`** — In `pyproject.toml`, change the `[tool.setuptools.packages.find]` section. The current content is `include = ["scripts*"]`. Since no Python packages remain in `scripts/`, remove the entire `[tool.setuptools.packages.find]` section (both the header line and the `include = ["scripts*"]` line). Keep `[project.optional-dependencies] dev = ["pytest"]` intact since `tests/test_link_skills.py` and `tests/test_nix_install.py` remain. Verify: `python3 -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"` succeeds and the output has no `tool.setuptools.packages.find` key.
+- [x] **Remove `scripts*` from setuptools package find in `pyproject.toml`** — In `pyproject.toml`, change the `[tool.setuptools.packages.find]` section. The current content is `include = ["scripts*"]`. Since no Python packages remain in `scripts/`, remove the entire `[tool.setuptools.packages.find]` section (both the header line and the `include = ["scripts*"]` line). Keep `[project.optional-dependencies] dev = ["pytest"]` intact since `tests/test_link_skills.py` and `tests/test_nix_install.py` remain. Verify: `python3 -c "import tomllib; tomllib.load(open('pyproject.toml','rb'))"` succeeds and the output has no `tool.setuptools.packages.find` key.
 
 ## Documentation — `.env.example`
 
