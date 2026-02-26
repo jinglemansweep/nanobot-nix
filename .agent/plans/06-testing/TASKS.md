@@ -17,7 +17,7 @@
 
 ### Update Entrypoint
 
-- [ ] **Modify `scripts/entrypoint.sh` to use `link-skills.sh`** — Replace lines 19–31 (the `mkdir -p`, both `for` loops, and the `if [ -d /mnt/skills ]` block) with a single call. Source the helper and call the function:
+- [x] **Modify `scripts/entrypoint.sh` to use `link-skills.sh`** — Replace lines 19–31 (the `mkdir -p`, both `for` loops, and the `if [ -d /mnt/skills ]` block) with a single call. Source the helper and call the function:
   ```
   # Step 4: Inject skills
   source /opt/nanobot-nix/scripts/link-skills.sh

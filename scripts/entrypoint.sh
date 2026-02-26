@@ -16,19 +16,9 @@ fi
 python3 -m scripts.config_generate
 
 # Step 4: Inject skills
-mkdir -p ~/.nanobot/workspace/skills/
-
-# Symlink built-in skills
-for dir in /opt/nanobot-nix/skills/*/; do
-  ln -sfn "$dir" ~/.nanobot/workspace/skills/"$(basename "$dir")"
-done
-
-# Overlay custom skills (custom overrides built-in of same name)
-if [ -d /mnt/skills ]; then
-  for dir in /mnt/skills/*/; do
-    ln -sfn "$dir" ~/.nanobot/workspace/skills/"$(basename "$dir")"
-  done
-fi
+# shellcheck disable=SC1091
+source /opt/nanobot-nix/scripts/link-skills.sh
+link_skills /opt/nanobot-nix/skills /mnt/skills ~/.nanobot/workspace/skills
 
 # Step 5: Exec nanobot
 exec nanobot "$@"
