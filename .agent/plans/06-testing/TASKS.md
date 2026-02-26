@@ -74,5 +74,5 @@
 
 ## Quality & Verification
 
-- [ ] **Run `pre-commit run --all-files`** — After all code changes are complete, run `pre-commit run --all-files` inside the activated virtualenv. Fix any errors or warnings until it passes cleanly. Pay special attention to shellcheck findings on the new/modified shell scripts.
-- [ ] **Run `pytest`** — After pre-commit passes, run `pytest` inside the activated virtualenv. All existing tests (27 Python tests) plus the new shell script tests must pass. Resolve any failures before proceeding.
+- [x] **Run `pre-commit run --all-files`** — After all code changes are complete, run `pre-commit run --all-files` inside the activated virtualenv. Fix any errors or warnings until it passes cleanly. Pay special attention to shellcheck findings on the new/modified shell scripts.
+- [x] **Run `pytest`** — After pre-commit passes, run `pytest` inside the activated virtualenv. All existing tests (27 Python tests) plus the new shell script tests must pass. Resolve any failures before proceeding.
