@@ -50,6 +50,6 @@
 
 ### Run Full Test Suite
 
-- [ ] **Run `pre-commit run --all-files` and fix any issues** — Activate the virtualenv (`source .venv/bin/activate`) and run `pre-commit run --all-files`. Fix any linting, formatting, or other errors until the command passes cleanly.
+- [x] **Run `pre-commit run --all-files` and fix any issues** — Activate the virtualenv (`source .venv/bin/activate`) and run `pre-commit run --all-files`. Fix any linting, formatting, or other errors until the command passes cleanly.
 
-- [ ] **Run `pytest` and verify all tests pass** — Run `pytest tests/test_config_generate.py -v` and confirm all tests pass, including the new tests added above and all pre-existing tests. Expected test count: the existing tests (approximately 14) plus 4 new tests = approximately 18 total. Zero failures, zero skips.
+- [x] **Run `pytest` and verify all tests pass** — Run `pytest tests/test_config_generate.py -v` and confirm all tests pass, including the new tests added above and all pre-existing tests. Expected test count: the existing tests (approximately 14) plus 4 new tests = approximately 18 total. Zero failures, zero skips.
