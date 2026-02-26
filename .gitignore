@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+node_modules/
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+*.log
