@@ -54,6 +54,6 @@
 
 ## Quality Gates
 
-- [ ] **Run pre-commit checks** — Run `pre-commit run --all-files` and fix all errors and warnings until it passes cleanly. This validates formatting, linting, and other project quality rules across all modified files.
+- [x] **Run pre-commit checks** — Run `pre-commit run --all-files` and fix all errors and warnings until it passes cleanly. This validates formatting, linting, and other project quality rules across all modified files.
 
-- [ ] **Final test run** — Run `pytest -v` one final time to confirm all tests still pass after any pre-commit auto-fixes.
+- [x] **Final test run** — Run `pytest -v` one final time to confirm all tests still pass after any pre-commit auto-fixes.
