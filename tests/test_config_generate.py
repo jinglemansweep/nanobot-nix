@@ -172,6 +172,37 @@ def test_generate_full_pipeline(monkeypatch, tmp_path):
     assert config["agents"]["defaults"]["model"] == "anthropic/claude-sonnet-4-5-20250514"
 
 
+def test_generate_discord_allowfrom_single_id(monkeypatch, tmp_path):
+    monkeypatch.setenv("HOME", str(tmp_path))
+    monkeypatch.setenv("NANOBOT_CHANNELS_DISCORD_ENABLED", "true")
+    monkeypatch.setenv("NANOBOT_CHANNELS_DISCORD_TOKEN", "test-discord-token")
+    monkeypatch.setenv("NANOBOT_CHANNELS_DISCORD_ALLOWFROM", "123444351234838888")
+
+    for key in list(os.environ.keys()):
+        if key.startswith("NANOBOT_") and key not in (
+            "NANOBOT_CHANNELS_DISCORD_ENABLED",
+            "NANOBOT_CHANNELS_DISCORD_TOKEN",
+            "NANOBOT_CHANNELS_DISCORD_ALLOWFROM",
+        ):
+            monkeypatch.delenv(key, raising=False)
+
+    monkeypatch.setattr("scripts.config_generate.read_docker_secrets", lambda: None)
+
+    nanobot_dir = tmp_path / ".nanobot"
+    nanobot_dir.mkdir()
+
+    generate()
+
+    config_path = nanobot_dir / "config.json"
+    assert config_path.exists()
+
+    config = json.loads(config_path.read_text())
+    assert config["channels"]["discord"]["enabled"] is True
+    assert config["channels"]["discord"]["token"] == "test-discord-token"
+    assert config["channels"]["discord"]["allowFrom"] == ["123444351234838888"]
+    assert isinstance(config["channels"]["discord"]["allowFrom"], list)
+
+
 def test_generate_zhipu_provider(monkeypatch, tmp_path):
     monkeypatch.setenv("HOME", str(tmp_path))
     monkeypatch.setenv("NANOBOT_PROVIDERS_ZHIPU_APIKEY", "zhipu-test-key-456")

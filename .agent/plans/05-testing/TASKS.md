@@ -29,7 +29,7 @@
 
 ### Discord `allowFrom` End-to-End Test
 
-- [ ] **Add integration test reproducing the exact bug scenario** — In `tests/test_config_generate.py`, add a new test function `test_generate_discord_allowfrom_single_id` following the pattern of the existing `test_generate_full_pipeline` test. The test should:
+- [x] **Add integration test reproducing the exact bug scenario** — In `tests/test_config_generate.py`, add a new test function `test_generate_discord_allowfrom_single_id` following the pattern of the existing `test_generate_full_pipeline` test. The test should:
   1. Use `monkeypatch` and `tmp_path` fixtures.
   2. Set `HOME` to `str(tmp_path)`.
   3. Set the following env vars via `monkeypatch.setenv()`:
