@@ -48,6 +48,12 @@ def test_infer_type_csv_non_array_field():
     assert result == "a, b, c"
 
 
+def test_infer_type_single_numeric_array_field():
+    result = infer_type("CHANNELS_DISCORD_ALLOWFROM", "701044353249837097")
+    assert result == ["701044353249837097"]
+    assert isinstance(result, list)
+
+
 def test_infer_type_plain_string():
     assert infer_type("SOME_FIELD", "hello") == "hello"
 

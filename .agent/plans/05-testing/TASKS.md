@@ -19,7 +19,7 @@
 
 ### Single-Value Array Field Tests
 
-- [ ] **Add test for single numeric value in array field** — In `tests/test_config_generate.py`, add a new test function `test_infer_type_single_numeric_array_field` that calls `infer_type("CHANNELS_DISCORD_ALLOWFROM", "701044353249837097")` and asserts the result equals `["701044353249837097"]`. Also assert `isinstance(result, list)` to confirm it is a list, not an int. This directly reproduces the bug from the error report.
+- [x] **Add test for single numeric value in array field** — In `tests/test_config_generate.py`, add a new test function `test_infer_type_single_numeric_array_field` that calls `infer_type("CHANNELS_DISCORD_ALLOWFROM", "701044353249837097")` and asserts the result equals `["701044353249837097"]`. Also assert `isinstance(result, list)` to confirm it is a list, not an int. This directly reproduces the bug from the error report.
 
 - [ ] **Add test for single non-numeric value in array field** — In `tests/test_config_generate.py`, add a new test function `test_infer_type_single_string_array_field` that calls `infer_type("CHANNELS_TELEGRAM_ALLOWFROM", "alice")` and asserts the result equals `["alice"]`. Also assert `isinstance(result, list)`. This ensures single non-numeric values are also wrapped in a list.
 
