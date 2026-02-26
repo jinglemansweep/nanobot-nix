@@ -10,8 +10,10 @@
 
 ## Quality Gates
 
-- Before completing any unit of work, run `pre-commit run --all-files` and fix ALL errors and warnings until it passes cleanly.
+- Quality gates apply per **logical unit of work**, not per individual change. When using the planner workflow, a logical unit is one task group (all tasks under a single heading in `TASKS.md`).
+- After completing a logical unit, run `pre-commit run --all-files` and fix ALL errors and warnings until it passes cleanly.
 - Run `pytest` and resolve ALL test failures before proceeding. No skipped or ignored tests.
+- Do NOT run quality gates or commit after every small change — batch them per logical unit.
 
 ## Git
 

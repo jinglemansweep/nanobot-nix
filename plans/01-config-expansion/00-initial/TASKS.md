@@ -20,7 +20,7 @@
 
 ## Entrypoint — Docker Secrets Shell Loop
 
-- [ ] **Replace Python config generator call in `scripts/entrypoint.sh`** — In `scripts/entrypoint.sh`, replace line 16 (`python3 -m scripts.config_generate`) with a shell-based Docker secrets export loop. The new Step 3 should be:
+- [x] **Replace Python config generator call in `scripts/entrypoint.sh`** — In `scripts/entrypoint.sh`, replace line 16 (`python3 -m scripts.config_generate`) with a shell-based Docker secrets export loop. The new Step 3 should be:
   ```bash
   # Step 3: Docker secrets → env vars
   if [ -d /run/secrets ]; then
