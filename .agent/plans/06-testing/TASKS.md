@@ -44,13 +44,13 @@
 
 ### Link-Skills Tests
 
-- [ ] **Create `tests/test_link_skills.py`** — Create a pytest test file that tests the `link_skills` function from `scripts/link-skills.sh`. Use `subprocess.run` with `bash -c 'source scripts/link-skills.sh && link_skills "$@"' _ <args>` to invoke the function. Use `tmp_path` fixture for temporary directories. Tests to include:
-  - [ ] `test_link_builtin_skills` — Create a temp dir with subdirectories `skill_a/` and `skill_b/` as the builtin dir, an empty custom dir, and an empty target dir. Call `link_skills <builtin> <custom> <target>`. Assert that `<target>/skill_a` and `<target>/skill_b` are symlinks pointing to the correct source directories. Assert no `*` entry exists in `<target>/`.
-  - [ ] `test_link_custom_skills_override` — Create a builtin dir with `skill_a/`, a custom dir with `skill_a/` (different path), and an empty target dir. Call `link_skills`. Assert that `<target>/skill_a` is a symlink pointing to the custom `skill_a/`, not the builtin one.
-  - [ ] `test_link_custom_skills_merged` — Create a builtin dir with `skill_a/`, a custom dir with `skill_b/`, and an empty target. Call `link_skills`. Assert both `skill_a` (pointing to builtin) and `skill_b` (pointing to custom) exist as symlinks in target.
-  - [ ] `test_link_no_skills_no_star_directory` — Create empty builtin and custom dirs. Call `link_skills`. Assert `<target>/` is empty (no `*` entry, no files at all). This is the regression test for the `*` directory bug.
-  - [ ] `test_link_no_custom_dir` — Create a builtin dir with `skill_a/`, and pass a nonexistent path as the custom dir. Call `link_skills`. Assert `<target>/skill_a` is a symlink and no errors occurred.
-  - [ ] `test_link_target_dir_created` — Pass a nonexistent path as the target dir. Call `link_skills`. Assert the target directory was created and contains the expected symlinks.
+- [x] **Create `tests/test_link_skills.py`** — Create a pytest test file that tests the `link_skills` function from `scripts/link-skills.sh`. Use `subprocess.run` with `bash -c 'source scripts/link-skills.sh && link_skills "$@"' _ <args>` to invoke the function. Use `tmp_path` fixture for temporary directories. Tests to include:
+  - [x] `test_link_builtin_skills` — Create a temp dir with subdirectories `skill_a/` and `skill_b/` as the builtin dir, an empty custom dir, and an empty target dir. Call `link_skills <builtin> <custom> <target>`. Assert that `<target>/skill_a` and `<target>/skill_b` are symlinks pointing to the correct source directories. Assert no `*` entry exists in `<target>/`.
+  - [x] `test_link_custom_skills_override` — Create a builtin dir with `skill_a/`, a custom dir with `skill_a/` (different path), and an empty target dir. Call `link_skills`. Assert that `<target>/skill_a` is a symlink pointing to the custom `skill_a/`, not the builtin one.
+  - [x] `test_link_custom_skills_merged` — Create a builtin dir with `skill_a/`, a custom dir with `skill_b/`, and an empty target. Call `link_skills`. Assert both `skill_a` (pointing to builtin) and `skill_b` (pointing to custom) exist as symlinks in target.
+  - [x] `test_link_no_skills_no_star_directory` — Create empty builtin and custom dirs. Call `link_skills`. Assert `<target>/` is empty (no `*` entry, no files at all). This is the regression test for the `*` directory bug.
+  - [x] `test_link_no_custom_dir` — Create a builtin dir with `skill_a/`, and pass a nonexistent path as the custom dir. Call `link_skills`. Assert `<target>/skill_a` is a symlink and no errors occurred.
+  - [x] `test_link_target_dir_created` — Pass a nonexistent path as the target dir. Call `link_skills`. Assert the target directory was created and contains the expected symlinks.
 
 ### Nix-Install Whitelist Tests
 
