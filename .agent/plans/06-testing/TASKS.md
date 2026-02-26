@@ -54,15 +54,15 @@
 
 ### Nix-Install Whitelist Tests
 
-- [ ] **Create `tests/test_nix_install.py`** — Create a pytest test file that tests the `check_package_allowed` function from `scripts/nix-install.sh`. Use `subprocess.run` with `bash -c 'source scripts/nix-install.sh && check_package_allowed <pkg>'` to invoke the function, passing `NANOBOT_NIX_ALLOWED_PACKAGES` via the `env=` parameter. Use `capture_output=True, text=True` to capture stdout/stderr. Tests to include:
-  - [ ] `test_allowed_packages_unset` — Do not set `NANOBOT_NIX_ALLOWED_PACKAGES` in the env. Call `check_package_allowed "curl"`. Assert return code is 1 and stderr contains `"disabled"`.
-  - [ ] `test_allowed_packages_empty_string` — Set `NANOBOT_NIX_ALLOWED_PACKAGES=""`. Call `check_package_allowed "curl"`. Assert return code is 1 and stderr contains `"disabled"`.
-  - [ ] `test_allowed_packages_wildcard` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="*"`. Call `check_package_allowed "curl"`. Assert return code is 0 (allowed).
-  - [ ] `test_allowed_packages_exact_match` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl,wget,jq"`. Call `check_package_allowed "wget"`. Assert return code is 0.
-  - [ ] `test_allowed_packages_no_match` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl,wget,jq"`. Call `check_package_allowed "vim"`. Assert return code is 1 and stderr contains `"not in the allowed list"`.
-  - [ ] `test_allowed_packages_whitespace_trimming` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl , wget , jq"`. Call `check_package_allowed "wget"`. Assert return code is 0 (whitespace around entries is trimmed).
-  - [ ] `test_allowed_packages_single_entry` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl"`. Call `check_package_allowed "curl"`. Assert return code is 0.
-  - [ ] `test_allowed_packages_trailing_comma` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl,wget,"`. Call `check_package_allowed "wget"`. Assert return code is 0 and no error occurs from the trailing empty entry.
+- [x] **Create `tests/test_nix_install.py`** — Create a pytest test file that tests the `check_package_allowed` function from `scripts/nix-install.sh`. Use `subprocess.run` with `bash -c 'source scripts/nix-install.sh && check_package_allowed <pkg>'` to invoke the function, passing `NANOBOT_NIX_ALLOWED_PACKAGES` via the `env=` parameter. Use `capture_output=True, text=True` to capture stdout/stderr. Tests to include:
+  - [x] `test_allowed_packages_unset` — Do not set `NANOBOT_NIX_ALLOWED_PACKAGES` in the env. Call `check_package_allowed "curl"`. Assert return code is 1 and stderr contains `"disabled"`.
+  - [x] `test_allowed_packages_empty_string` — Set `NANOBOT_NIX_ALLOWED_PACKAGES=""`. Call `check_package_allowed "curl"`. Assert return code is 1 and stderr contains `"disabled"`.
+  - [x] `test_allowed_packages_wildcard` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="*"`. Call `check_package_allowed "curl"`. Assert return code is 0 (allowed).
+  - [x] `test_allowed_packages_exact_match` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl,wget,jq"`. Call `check_package_allowed "wget"`. Assert return code is 0.
+  - [x] `test_allowed_packages_no_match` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl,wget,jq"`. Call `check_package_allowed "vim"`. Assert return code is 1 and stderr contains `"not in the allowed list"`.
+  - [x] `test_allowed_packages_whitespace_trimming` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl , wget , jq"`. Call `check_package_allowed "wget"`. Assert return code is 0 (whitespace around entries is trimmed).
+  - [x] `test_allowed_packages_single_entry` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl"`. Call `check_package_allowed "curl"`. Assert return code is 0.
+  - [x] `test_allowed_packages_trailing_comma` — Set `NANOBOT_NIX_ALLOWED_PACKAGES="curl,wget,"`. Call `check_package_allowed "wget"`. Assert return code is 0 and no error occurs from the trailing empty entry.
 
 ## Docker User/Permissions Documentation
 
