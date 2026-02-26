@@ -8,6 +8,11 @@ import sys
 
 from .config_schema import ALIASES, ARRAY_FIELDS, DEFAULTS, ENV_MAP
 
+# NANOBOT_* env vars that are NOT config keys (used by other scripts)
+IGNORED_ENV_VARS = {
+    "NIX_ALLOWED_PACKAGES",
+}
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s", stream=sys.stderr)
 log = logging.getLogger(__name__)
 
@@ -88,6 +93,8 @@ def generate():
         if not key.startswith("NANOBOT_"):
             continue
         suffix = key[len("NANOBOT_"):]
+        if suffix in IGNORED_ENV_VARS:
+            continue
         if suffix not in ENV_MAP:
             log.warning("Unknown config key: NANOBOT_%s, skipping", suffix)
             skipped += 1

@@ -24,6 +24,8 @@ The following tools are **pre-installed** and available on `PATH`:
 
 ## Nix Self-Provisioning Instructions
 
+**IMPORTANT:** You **MUST** use the scripts below to search for and install packages. Do **NOT** use `nix profile install`, `nix-env`, `apt`, or any other package manager directly. These scripts handle whitelist validation and environment setup for you.
+
 You can install additional tools on-demand using Nix. Installed packages persist across container restarts via the `/nix` volume.
 
 **Before installing**, always check if the tool is already available:
