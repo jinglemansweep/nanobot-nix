@@ -20,6 +20,8 @@ ENV_MAP = {
     "PROVIDERS_OPENAI_APIKEY": ("providers", "openai", "apiKey"),
     "PROVIDERS_DEEPSEEK_APIKEY": ("providers", "deepseek", "apiKey"),
     "PROVIDERS_GROQ_APIKEY": ("providers", "groq", "apiKey"),
+    "PROVIDERS_ZHIPU_APIKEY": ("providers", "zhipu", "apiKey"),
+    "PROVIDERS_ZHIPU_APIBASE": ("providers", "zhipu", "apiBase"),
     "PROVIDERS_CUSTOM_APIKEY": ("providers", "custom", "apiKey"),
     "PROVIDERS_CUSTOM_APIBASE": ("providers", "custom", "apiBase"),
     "AGENTS_DEFAULTS_MODEL": ("agents", "defaults", "model"),
