@@ -38,7 +38,7 @@
 
 ### Investigate Allowed-Packages Env Chain
 
-- [ ] **Verify `NANOBOT_NIX_ALLOWED_PACKAGES` env chain behavior** — Write a test in `tests/test_nix_install.py` (see Shell Script Test Suite group) that specifically validates: when `NANOBOT_NIX_ALLOWED_PACKAGES="*"` is set via `env=` parameter in `subprocess.run`, the `check_package_allowed` function receives the literal string `*` and returns 0 (allow). This confirms the variable survives the env chain without shell expansion. If this test fails, investigate whether the value needs additional quoting or escaping and fix accordingly.
+- [x] **Verify `NANOBOT_NIX_ALLOWED_PACKAGES` env chain behavior** — Write a test in `tests/test_nix_install.py` (see Shell Script Test Suite group) that specifically validates: when `NANOBOT_NIX_ALLOWED_PACKAGES="*"` is set via `env=` parameter in `subprocess.run`, the `check_package_allowed` function receives the literal string `*` and returns 0 (allow). This confirms the variable survives the env chain without shell expansion. If this test fails, investigate whether the value needs additional quoting or escaping and fix accordingly.
 
 ## Shell Script Test Suite
 
