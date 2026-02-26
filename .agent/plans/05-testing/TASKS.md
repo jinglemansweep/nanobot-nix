@@ -23,7 +23,7 @@
 
 - [x] **Add test for single non-numeric value in array field** — In `tests/test_config_generate.py`, add a new test function `test_infer_type_single_string_array_field` that calls `infer_type("CHANNELS_TELEGRAM_ALLOWFROM", "alice")` and asserts the result equals `["alice"]`. Also assert `isinstance(result, list)`. This ensures single non-numeric values are also wrapped in a list.
 
-- [ ] **Add test for multi-value numeric array field** — In `tests/test_config_generate.py`, add a new test function `test_infer_type_csv_numeric_array_field` that calls `infer_type("CHANNELS_DISCORD_ALLOWFROM", "123456789,987654321")` and asserts the result equals `["123456789", "987654321"]`. This verifies that comma-separated numeric values in array fields remain as strings (not converted to ints) and are properly split.
+- [x] **Add test for multi-value numeric array field** — In `tests/test_config_generate.py`, add a new test function `test_infer_type_csv_numeric_array_field` that calls `infer_type("CHANNELS_DISCORD_ALLOWFROM", "123456789,987654321")` and asserts the result equals `["123456789", "987654321"]`. This verifies that comma-separated numeric values in array fields remain as strings (not converted to ints) and are properly split.
 
 ## Full Pipeline Integration Test
 
