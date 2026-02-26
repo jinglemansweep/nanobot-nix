@@ -9,7 +9,7 @@
   - `"PROVIDERS_ZHIPU_APIBASE": ("providers", "zhipu", "apiBase")`
   - Verify: run `python -c "from scripts.config_schema import ENV_MAP; assert 'PROVIDERS_ZHIPU_APIKEY' in ENV_MAP; assert 'PROVIDERS_ZHIPU_APIBASE' in ENV_MAP; print('OK')"`.
 
-- [ ] **Add Zhipu `ALIASES` entry to `scripts/config_schema.py`** — In `scripts/config_schema.py`, add one new entry to the `ALIASES` dict, positioned after the `GROQ_API_KEY` entry:
+- [x] **Add Zhipu `ALIASES` entry to `scripts/config_schema.py`** — In `scripts/config_schema.py`, add one new entry to the `ALIASES` dict, positioned after the `GROQ_API_KEY` entry:
   - `"ZHIPU_API_KEY": "NANOBOT_PROVIDERS_ZHIPU_APIKEY"`
   - Verify: run `python -c "from scripts.config_schema import ALIASES; assert ALIASES['ZHIPU_API_KEY'] == 'NANOBOT_PROVIDERS_ZHIPU_APIKEY'; print('OK')"`.
 
