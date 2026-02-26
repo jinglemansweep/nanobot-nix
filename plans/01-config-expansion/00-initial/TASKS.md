@@ -69,6 +69,6 @@
 
 ## Validation
 
-- [ ] **Run remaining tests** — Execute `source .venv/bin/activate && pytest` to run the remaining test suite (`tests/test_link_skills.py` and `tests/test_nix_install.py`). Both must pass. If any test imports from deleted modules, the test file has a stale import that needs fixing. Verify: `pytest` exits with code 0 and all tests pass.
+- [x] **Run remaining tests** — Execute `source .venv/bin/activate && pytest` to run the remaining test suite (`tests/test_link_skills.py` and `tests/test_nix_install.py`). Both must pass. If any test imports from deleted modules, the test file has a stale import that needs fixing. Verify: `pytest` exits with code 0 and all tests pass.
 
-- [ ] **Run pre-commit quality gates** — Execute `source .venv/bin/activate && pre-commit run --all-files`. Fix any errors or warnings until the entire suite passes cleanly. Common issues: trailing whitespace in new/modified files, shellcheck warnings in `entrypoint.sh`, YAML/TOML formatting. Verify: `pre-commit run --all-files` exits with code 0.
+- [x] **Run pre-commit quality gates** — Execute `source .venv/bin/activate && pre-commit run --all-files`. Fix any errors or warnings until the entire suite passes cleanly. Common issues: trailing whitespace in new/modified files, shellcheck warnings in `entrypoint.sh`, YAML/TOML formatting. Verify: `pre-commit run --all-files` exits with code 0.
