@@ -47,7 +47,7 @@
 
 ## Documentation Update
 
-- [ ] **Add Zhipu to README provider table** — In `README.md`, in the "Provider API Keys" table (lines 39–49), add two new rows after the Groq row and before the Custom rows:
+- [x] **Add Zhipu to README provider table** — In `README.md`, in the "Provider API Keys" table (lines 39–49), add two new rows after the Groq row and before the Custom rows:
   - `| \`NANOBOT_PROVIDERS_ZHIPU_APIKEY\` | Zhipu AI (Z.AI/GLM) API key | \`ZHIPU_API_KEY\` |`
   - `| \`NANOBOT_PROVIDERS_ZHIPU_APIBASE\` | Zhipu AI API base URL (default: \`https://api.z.ai/api/coding/paas/v4\`) | |`
   - Requires: Config Schema Extension group to be complete.

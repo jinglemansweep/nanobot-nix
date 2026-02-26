@@ -45,6 +45,8 @@ Several common environment variables also have shorter **aliases** for convenien
 | `NANOBOT_PROVIDERS_OPENAI_APIKEY` | OpenAI API key | `OPENAI_API_KEY` |
 | `NANOBOT_PROVIDERS_DEEPSEEK_APIKEY` | DeepSeek API key | `DEEPSEEK_API_KEY` |
 | `NANOBOT_PROVIDERS_GROQ_APIKEY` | Groq API key | `GROQ_API_KEY` |
+| `NANOBOT_PROVIDERS_ZHIPU_APIKEY` | Zhipu AI (Z.AI/GLM) API key | `ZHIPU_API_KEY` |
+| `NANOBOT_PROVIDERS_ZHIPU_APIBASE` | Zhipu AI API base URL (default: `https://api.z.ai/api/coding/paas/v4`) | |
 | `NANOBOT_PROVIDERS_CUSTOM_APIKEY` | Custom provider API key | |
 | `NANOBOT_PROVIDERS_CUSTOM_APIBASE` | Custom provider API base URL | |
 
