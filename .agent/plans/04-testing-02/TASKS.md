@@ -43,7 +43,7 @@
   - Assert `os.environ["NANOBOT_PROVIDERS_ZHIPU_APIKEY"] == "alias-zhipu-key"`.
   - Requires: Config Schema Extension group to be complete.
 
-- [ ] **Run full test suite** — Run `pytest -v` and confirm all tests pass (both existing and new). Fix any failures before proceeding.
+- [x] **Run full test suite** — Run `pytest -v` and confirm all tests pass (both existing and new). Fix any failures before proceeding.
 
 ## Documentation Update
 
