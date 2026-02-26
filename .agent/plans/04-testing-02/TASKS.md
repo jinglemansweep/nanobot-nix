@@ -22,7 +22,7 @@
 
 ## Test Coverage
 
-- [ ] **Verify existing structural tests pass with new schema entries** — Run `pytest tests/test_config_schema.py -v` and confirm all tests pass. The existing generic tests (`test_env_map_values_are_tuples`, `test_env_map_values_contain_strings`, `test_aliases_point_to_valid_canonical_names`, `test_no_duplicate_env_map_paths`) automatically cover the new Zhipu entries because they iterate over all `ENV_MAP` and `ALIASES` entries. No new test code is needed in this file. Requires: Config Schema Extension group to be complete.
+- [x] **Verify existing structural tests pass with new schema entries** — Run `pytest tests/test_config_schema.py -v` and confirm all tests pass. The existing generic tests (`test_env_map_values_are_tuples`, `test_env_map_values_contain_strings`, `test_aliases_point_to_valid_canonical_names`, `test_no_duplicate_env_map_paths`) automatically cover the new Zhipu entries because they iterate over all `ENV_MAP` and `ALIASES` entries. No new test code is needed in this file. Requires: Config Schema Extension group to be complete.
 
 - [ ] **Add Zhipu integration test to `tests/test_config_generate.py`** — Add a new test function `test_generate_zhipu_provider` to `tests/test_config_generate.py`, following the pattern of the existing `test_generate_full_pipeline` test (lines 126–148). The test should:
   - Use `monkeypatch` to set `NANOBOT_PROVIDERS_ZHIPU_APIKEY` to `"zhipu-test-key-456"` and `NANOBOT_PROVIDERS_ZHIPU_APIBASE` to `"https://api.z.ai/api/coding/paas/v4"`.
