@@ -146,3 +146,35 @@ def test_generate_full_pipeline(monkeypatch, tmp_path):
     config = json.loads(config_path.read_text())
     assert config["providers"]["openrouter"]["apiKey"] == "test-key-123"
     assert config["agents"]["defaults"]["model"] == "anthropic/claude-sonnet-4-5-20250514"
+
+
+def test_generate_zhipu_provider(monkeypatch, tmp_path):
+    monkeypatch.setenv("HOME", str(tmp_path))
+    monkeypatch.setenv("NANOBOT_PROVIDERS_ZHIPU_APIKEY", "zhipu-test-key-456")
+    monkeypatch.setenv(
+        "NANOBOT_PROVIDERS_ZHIPU_APIBASE",
+        "https://api.z.ai/api/coding/paas/v4",
+    )
+
+    for key in list(os.environ.keys()):
+        if key.startswith("NANOBOT_") and key not in (
+            "NANOBOT_PROVIDERS_ZHIPU_APIKEY",
+            "NANOBOT_PROVIDERS_ZHIPU_APIBASE",
+        ):
+            monkeypatch.delenv(key, raising=False)
+
+    monkeypatch.setattr("scripts.config_generate.read_docker_secrets", lambda: None)
+
+    nanobot_dir = tmp_path / ".nanobot"
+    nanobot_dir.mkdir()
+
+    generate()
+
+    config_path = nanobot_dir / "config.json"
+    config = json.loads(config_path.read_text())
+    assert config["providers"]["zhipu"]["apiKey"] == "zhipu-test-key-456"
+    assert (
+        config["providers"]["zhipu"]["apiBase"]
+        == "https://api.z.ai/api/coding/paas/v4"
+    )
+    assert config["agents"]["defaults"]["model"] == "anthropic/claude-sonnet-4-5-20250514"
