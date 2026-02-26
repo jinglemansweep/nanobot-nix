@@ -8,7 +8,7 @@
 
 - [x] **Delete `scripts/config_schema.py`** — Remove the file `scripts/config_schema.py`. This file contains `ENV_MAP`, `DEFAULTS`, `ARRAY_FIELDS`, and `ALIASES` — all redundant now that Pydantic handles env vars natively. Verify: `ls scripts/config_schema.py` returns "No such file".
 
-- [ ] **Delete `scripts/config_generate.py`** — Remove the file `scripts/config_generate.py`. This file contains the custom config generation pipeline that writes `~/.nanobot/config.json` from env vars. No longer needed. Verify: `ls scripts/config_generate.py` returns "No such file".
+- [x] **Delete `scripts/config_generate.py`** — Remove the file `scripts/config_generate.py`. This file contains the custom config generation pipeline that writes `~/.nanobot/config.json` from env vars. No longer needed. Verify: `ls scripts/config_generate.py` returns "No such file".
 
 - [ ] **Delete `scripts/__init__.py`** — Remove the file `scripts/__init__.py`. This was the Python package init for `scripts/`. No Python modules remain in `scripts/` after the above deletions (only shell scripts remain: `entrypoint.sh`, `link-skills.sh`, `nix-install.sh`). Verify: `ls scripts/__init__.py` returns "No such file".
 
