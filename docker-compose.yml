@@ -12,7 +12,6 @@ services:
     build: *common-build
     command: ["gateway"]
     restart: unless-stopped
-    read_only: true
     ports:
       - "${DOCKER_BIND_HOST:-127.0.0.1}:18790:18790"
     env_file:
@@ -35,7 +34,6 @@ services:
     build: *common-build
     command: ["serve", "--host", "0.0.0.0", "-w", "/home/nanobot/.nanobot/api-workspace"]
     restart: unless-stopped
-    read_only: false
     env_file:
       - ${PWD}/.env
     ports:
@@ -60,7 +58,6 @@ services:
     image: ghcr.io/jinglemansweep/nanobot-nix:latest
     build: *common-build
     command: ["agent"]
-    read_only: true
     stdin_open: true
     tty: true
     profiles:
