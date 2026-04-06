@@ -59,6 +59,9 @@ COPY --from=builder /opt/nanobot /opt/nanobot
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /usr/local/bin/nanobot /usr/local/bin/nanobot
 
+# Install channels dependencies (e.g. discord)
+RUN cd /opt/nanobot && pip install -e ".[discord]"
+
 # Copy distro files
 COPY scripts/ /opt/nanobot-nix/scripts/
 COPY skills/ /opt/nanobot-nix/skills/
